@@ -8,6 +8,10 @@ The plan is coherent overall. `index.html` matches the approved preview (I compa
 
 How I checked: I read the three files in full, looked at all 35 images (dimensions, colors, edges), rendered the page in Chromium at 360, 390, 768, 1280 and 1440px (plus intermediate widths) to measure overflow and the displayed size of each image, computed contrast ratios, and read npm metadata for the font package. I installed nothing and changed no file except this one.
 
+## Owner decisions
+
+The owner answered all 22 questions on 28 October 2026. The answers are recorded in `docs/BRIEF-site-goundo.md`, section 10, and the matching open items in its section 8 are closed.
+
 ## Findings
 
 | # | Where (file, section or line) | Finding | Type | Proposed fix | Owner decision needed? |
