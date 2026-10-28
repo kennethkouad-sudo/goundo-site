@@ -179,8 +179,8 @@ h1 sup { font-size: .45em; line-height: inherit; }
 .mail { font-family: var(--display); font-size: clamp(1.3rem, 2.6vw, 1.8rem); color: var(--on-dark); user-select: all; overflow-wrap: anywhere; }
 .copy { background: transparent; color: var(--on-dark-soft); border: 1px solid var(--line-dark); border-radius: 999px; padding: .35rem .9rem; font: 500 .85rem var(--body); cursor: pointer; }
 .copy:hover { color: var(--on-dark); border-color: var(--on-dark-soft); }
-.subject { font-size: .92rem; color: var(--on-dark-soft); }
-.subject b { color: var(--on-dark); font-weight: 600; }
+.subject, .cabinet { font-size: .92rem; color: var(--on-dark-soft); }
+.subject b, .cabinet b { color: var(--on-dark); font-weight: 600; }
 /* "Dans votre message": a page from her notebook, taped onto the mûre band. Ruled lines, a mauve margin rule, empty boxes to tick. */
 .checklist { --margin: 2.6rem; position: relative; min-width: 0; margin-top: .6rem; padding: 2.1rem 1.8rem 1.7rem calc(var(--margin) + 1.1rem); background: var(--paper) linear-gradient(to right, transparent var(--margin), var(--mauve) var(--margin), var(--mauve) calc(var(--margin) + 1px), transparent calc(var(--margin) + 1px)); color: var(--ink); border-radius: 2px; rotate: 1.5deg; box-shadow: 0 28px 50px -30px rgba(20, 8, 14, .8); }
 .checklist::before { content: ""; position: absolute; top: -.75rem; left: 50%; width: 6rem; height: 1.5rem; translate: -50% 0; rotate: -4deg; background: rgba(233, 214, 220, .82); }
@@ -188,6 +188,8 @@ h1 sup { font-size: .45em; line-height: inherit; }
 .checklist ul { margin: .9rem 0 0; padding: 0; list-style: none; }
 .checklist li { display: grid; grid-template-columns: 1.7rem minmax(0, 1fr); align-items: start; padding-block: .62rem; border-bottom: 1px solid var(--line); }
 .checklist li::before { content: ""; width: .9rem; height: .9rem; margin-top: .38em; border: 1.4px solid var(--olive); border-radius: 3px; }
+.nowrap { white-space: nowrap; }
+.checklist .aside { margin-top: 1rem; font-size: .92rem; line-height: 1.5; color: var(--ink-soft); }
 .checklist .urgent { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: center; margin-top: 1.5rem; padding: 1rem 1.1rem; background: var(--blush); font-size: .92rem; line-height: 1.5; color: var(--ink); }
 .checklist .urgent .num { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--mure); color: var(--on-dark); font-family: var(--display); font-size: 1.35rem; line-height: 1; }
 .checklist .urgent b { color: var(--mure); font-weight: 600; }
@@ -301,7 +303,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
       <a href="#soins">Soins</a>
       <a href="#parcours">Parcours</a>
       <a href="#memoire">Mémoire</a>
-      <a class="btn btn-olive" href="#rendez-vous">Prendre rendez-vous</a>
+      <a class="btn btn-olive js-book" href="#rendez-vous">Prendre rendez-vous</a>
     </nav>
   </div>
 </header>
@@ -314,7 +316,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         <h1>Sage-femme libérale à Paris&nbsp;15<sup>e</sup>, pour votre santé de <em>femme</em>, à tout âge.</h1>
         <p class="lead">Je suis Goundo Sakho. Je vous accompagne pendant la grossesse et après la naissance, et pour votre suivi gynécologique : contraception, dépistage, infections, projet de bébé.</p>
         <div class="actions">
-          <a class="btn btn-olive js-mail" href="#rendez-vous">
+          <a class="btn btn-olive js-mail js-book" href="mailto:pro.goundo@gmail.com?subject=Prise%20de%20rendez-vous">
             Demander un rendez-vous
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -510,11 +512,12 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         <p class="lead">Pour l'instant, les rendez-vous se prennent par e-mail. Je vous réponds avec un créneau au cabinet.</p>
         <div class="mailcard">
           <div class="mailrow">
-            <span class="mail" id="mail-text">contact@exemple.fr</span>
+            <span class="mail" id="mail-text">pro.goundo@gmail.com</span>
             <button class="copy" id="copy-btn" type="button" aria-live="polite" hidden>Copier l'adresse</button>
           </div>
           <p class="subject">Objet du message : <b>Prise de rendez-vous</b></p>
-          <a class="btn btn-light js-mail" href="#rendez-vous">Écrire un e-mail
+          <p class="cabinet">Cabinet : <b>62 rue des Entrepreneurs, 75015 Paris</b></p>
+          <a class="btn btn-light js-mail" href="mailto:pro.goundo@gmail.com?subject=Prise%20de%20rendez-vous">Écrire un e-mail
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
         </div>
@@ -523,10 +526,11 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         <h3>Dans votre message</h3>
         <ul>
           <li>Votre nom et prénom</li>
-          <li>Le motif de la consultation</li>
+          <li><span>Le type de consultation (grossesse, gynécologie, <span class="nowrap">post-partum…)</span></span></li>
           <li>Vos disponibilités dans la semaine</li>
           <li>Un numéro de téléphone pour vous joindre</li>
         </ul>
+        <p class="aside">Inutile de détailler votre situation par <span class="nowrap">e-mail</span>, on en parlera en consultation.</p>
         <p class="urgent"><span class="num" aria-hidden="true">15</span><span><b>En cas d'urgence</b>, n'attendez pas ma réponse : appelez le 15 ou rendez-vous aux urgences de la maternité la plus proche.</span></p>
       </div>
     </div>
@@ -546,11 +550,14 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 
 <script>
 (function () {
-  var EMAIL = "contact@exemple.fr";
+  // The same address and booking link are also written in the HTML, so everything works without JS (see README).
+  var EMAIL = "pro.goundo@gmail.com";
   var SUBJECT = "Prise de rendez-vous";
+  var BOOKING_URL = ""; // Doctolib link, once Goundo has one. Empty: the booking buttons keep their e-mail / #rendez-vous links.
   var href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(SUBJECT);
   document.getElementById("mail-text").textContent = EMAIL;
   document.querySelectorAll(".js-mail").forEach(function (a) { a.setAttribute("href", href); });
+  if (BOOKING_URL) document.querySelectorAll(".js-book").forEach(function (a) { a.setAttribute("href", BOOKING_URL); });
   var btn = document.getElementById("copy-btn");
   btn.hidden = false; // without JS the button could not copy anything, so it stays hidden
   btn.addEventListener("click", function () {

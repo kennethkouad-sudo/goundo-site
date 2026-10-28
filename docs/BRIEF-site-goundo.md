@@ -127,7 +127,7 @@ Hand-drawn line icons sit next to the hero facts and next to each service. They 
 8. **Rendez-vous / Contact** (mûre):
    - booking by email, with the subject line "Prise de rendez-vous";
    - the email shown as text with a copy button;
-   - the practice address, shown as « Cabinet : 62 rue des Entrepreneurs, 75015 Paris » (wording approved 28 October 2026), so it reads as her cabinet, not as the only place she works (she also works elsewhere);
+   - the practice address, shown under the e-mail subject line as « Cabinet : 62 rue des Entrepreneurs, 75015 Paris » (wording approved 28 October 2026), so it reads as her cabinet, not as the only place she works (she also works elsewhere);
    - a "Dans votre message" checklist (items: name; "Le type de consultation (grossesse, gynécologie, post-partum…)"; availability; a phone number to call back), followed by the plain line "Inutile de détailler votre situation par e-mail, on en parlera en consultation." It is styled as a page from her notebook taped onto the mûre band: papier card tilted 1.5°, a strip of mauve-poudré tape, a mauve margin rule, ruled lines and empty olive tick boxes;
    - an urgent-care line: "appelez le 15", inside the note on a mauve-poudré strip, with "15" in a mûre circle.
 9. **Footer**: logo, name, LinkedIn (the only social link she wants) and a "Mentions légales" link.
@@ -143,11 +143,11 @@ Hand-drawn line icons sit next to the hero facts and next to each service. They 
 
 ## 6. Real contact details (from her business card)
 
-- Email: **pro.goundo@gmail.com**. The site still shows the placeholder `contact@exemple.fr`, set in one JS constant `EMAIL` plus the visible text.
+- Email: **pro.goundo@gmail.com** (on the site since 28 October 2026: visible text, JS constant `EMAIL`, and `mailto:` links written in the HTML with the subject "Prise de rendez-vous").
 - Phone: **07 66 96 67 81**. Decided 28 October 2026: shown on **neither** page. The LCEN may require a phone number in the mentions légales; this is tracked in `TODO-LEGAL.md`.
 - Practice address: **62 rue des Entrepreneurs, 75015 Paris**. Decided 28 October 2026: shown in the contact section and in the mentions légales, as her cabinet (she also works in other places).
 - LinkedIn: https://www.linkedin.com/in/goundo-sakho-4746551a8/
-- Doctolib: not set up yet. When she has a link, the header "Prendre rendez-vous" and the hero "Demander un rendez-vous" switch to it; "Écrire un e-mail" stays an e-mail link.
+- Doctolib: not set up yet. When she has a link, the header "Prendre rendez-vous" and the hero "Demander un rendez-vous" switch to it; "Écrire un e-mail" stays an e-mail link. The link goes in `BOOKING_URL` in the script and in the `href` of the two `js-book` links (see `README.md`).
 - Domain: **goundosakho.fr** (bought; DNS access comes later).
 - Host: **Netlify**, publishing this GitHub repository.
 
