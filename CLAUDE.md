@@ -204,6 +204,8 @@ Done on 28 October 2026 and approved by the owner. These are the rules to follow
   - the logo's droplet in olive on mauve poudré.
 
   The thin line of the full logo does not survive at 16px, so do not use it. Deliver `favicon.svg`, `favicon.ico` (32px) and `apple-touch-icon.png` (180px).
+
+  **Done, 28 October 2026:** Goundo chose neither option but her own drawing, a uterus with flowers as ovaries. Its source is `brand/favicon-source.svg`, used exactly as drawn (see the brief, section 3).
 - **Sharing image (`og-image.jpg`, 1200×630).** The portrait on a mauve-poudré background, the logo in mûre, and the line "Sage-femme libérale à Paris 15e". Add the `og:` and `twitter:card` tags. Show the image to the owner before committing it.
 - `robots.txt` and `sitemap.xml`, with the final domain. Use a placeholder until the domain is known.
 - Structured data (JSON-LD): add it only after the address is confirmed, and only with facts given by the owner.

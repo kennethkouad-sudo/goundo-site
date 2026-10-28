@@ -88,6 +88,10 @@ Hand-drawn line icons sit next to the hero facts and next to each service. They 
 - Set: Eiffel Tower (Cabinet à Paris 15e), calendar with a tick (Consultations sur rendez-vous), graduation cap with tassel (Diplômée de l'Université Paris Cité), pregnant silhouette (Suivi de grossesse), breath curls (Préparation), tulip (Suivi gynécologique), crescent moon and star (Post-partum), lotus (Rééducation du périnée).
 - Icons are decoration (`aria-hidden`); the printed text carries the information. They are not her handwriting and do not count toward the handwriting rules.
 
+### Favicon (chosen by Goundo, 28 October 2026)
+
+A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre line (stroke 3), mauve petals, olive flower centres. Goundo chose it instead of the two options first proposed (a Gloock "G", the logo's droplet). The source SVG is kept exactly as drawn in `brand/favicon-source.svg`. The site uses `favicon.svg` (identical copy), `favicon.ico` (32px) and `apple-touch-icon.png` (180px, with the corners filled in mauve poudré, because phones fill transparent corners with black and round the icon themselves). It is a site icon, not one of the line icons above, so the line-icon rules do not apply to it.
+
 ### Voice
 
 - Use *vous* on the site. *Tu* appears only in her handwritten notes ("Prends soin de ta santé").
