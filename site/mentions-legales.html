@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mentions légales · Goundo Sakho, sage-femme</title>
+<meta name="description" content="Mentions légales et données personnelles du site de Goundo Sakho, sage-femme libérale à Paris 15e.">
+<link rel="preload" href="fonts/gloock-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Same fonts, colors, header and footer as index.html (copied from it; keep both in step). */
+@font-face { font-family: "Gloock"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/gloock-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("fonts/instrument-sans-latin-wght-normal.woff2") format("woff2"); }
+
+:root {
+  /* Brand colors. Names in the brief (section 3) in the comments. */
+  --blush: #E9D6DC;         /* mauve-poudre */
+  --paper: #F7F0F2;         /* papier */
+  --mure: #4A2A36;          /* mure */
+  --olive: #5F6640;         /* olive */
+  --ink: #3A2430;           /* encre */
+  --ink-soft: #6E5762;      /* encre-douce */
+  --on-dark: #F7EEF1;       /* nacre */
+  --on-dark-soft: #D9C2CB;  /* nacre-douce */
+  --line: rgba(74, 42, 54, .16);
+  --line-dark: rgba(247, 238, 241, .2);
+  --display: "Gloock", "Iowan Old Style", Georgia, serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --max: 72rem;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+sup { font-size: .7em; line-height: 0; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: clamp(4rem, 9vw, 7rem); }
+.label { font-family: var(--body); line-height: 1.65; font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
+:focus-visible { outline: 2px solid var(--olive); outline-offset: 3px; border-radius: 4px; }
+
+.btn { display: inline-flex; align-items: center; gap: .6rem; padding: .85rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: .98rem; text-decoration: none; border: 1.5px solid transparent; transition: transform .2s ease, background-color .2s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-olive { background: var(--olive); color: var(--on-dark); }
+.btn-olive:hover { background: #4f5535; }
+
+/* Header */
+.top { background: var(--blush); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.4rem; }
+.top .logo { flex: none; }
+.top .logo img { width: 11rem; }
+.top nav { display: flex; align-items: center; gap: 2rem; font-size: .95rem; font-weight: 500; }
+.top nav a:not(.btn) { text-decoration: none; color: var(--mure); }
+.top nav a:not(.btn):hover { text-decoration: underline; text-underline-offset: 4px; }
+.top .btn { padding: .6rem 1.1rem; font-size: .9rem; }
+
+/* Legal text: one readable column, sections divided by thin rules, like the rest of the site. */
+.legal .wrap > * { max-width: 46rem; }
+.legal h1 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--mure); margin-top: .9rem; }
+.legal .intro { margin-top: 1.4rem; color: var(--ink-soft); }
+.legal section { margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--line); }
+.legal h2 { font-size: 1.6rem; color: var(--mure); }
+.legal dl { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: .7rem 1.6rem; margin: 1.2rem 0 0; }
+.legal dt { font-size: .92rem; font-weight: 600; color: var(--mure); }
+.legal dd { margin: 0; }
+.legal section p + p, .legal dl + p { margin-top: .9rem; }
+.legal section > p:first-of-type { margin-top: 1.2rem; }
+/* Placeholders stay visible until the facts are given; none may remain at launch (README). */
+.todo { background: var(--blush); color: var(--mure); font-weight: 600; padding: .05em .35em; border-radius: 2px; }
+
+footer { background: var(--mure); color: var(--on-dark-soft); font-size: .88rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem 2rem; padding-block: 2rem 2.4rem; border-top: 1px solid var(--line-dark); }
+footer .logo { width: 7.5rem; }
+footer nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+footer a { color: var(--on-dark); text-underline-offset: 3px; }
+
+@media (max-width: 860px) {
+  .top nav a:not(.btn) { display: none; }
+}
+@media (max-width: 520px) {
+  .top .logo img { width: 7.5rem; }
+  .legal dl { grid-template-columns: minmax(0, 1fr); gap: .1rem; }
+  .legal dd + dt { margin-top: .7rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Goundo, accueil"><img src="img/logo-mure.png" alt="Goundo"></a>
+    <nav aria-label="Navigation principale">
+      <a href="index.html#soins">Soins</a>
+      <a href="index.html#parcours">Parcours</a>
+      <a href="index.html#memoire">Mémoire</a>
+      <a class="btn btn-olive js-book" href="index.html#rendez-vous">Prendre rendez-vous</a>
+    </nav>
+  </div>
+</header>
+
+<main class="legal band">
+  <div class="wrap">
+    <p class="label">Informations légales</p>
+    <h1>Mentions légales</h1>
+    <p class="intro">Informations sur l'éditrice et l'hébergement de ce site, conformément à la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique.</p>
+
+    <section aria-labelledby="editrice">
+      <h2 id="editrice">Éditrice du site</h2>
+      <dl>
+        <dt>Éditrice</dt>
+        <dd>Goundo Sakho, sage-femme libérale</dd>
+        <dt>Adresse professionnelle</dt>
+        <dd>62 rue des Entrepreneurs, 75015 Paris</dd>
+        <dt>Contact</dt>
+        <dd><a href="mailto:pro.goundo@gmail.com">pro.goundo@gmail.com</a></dd>
+        <dt>Directrice de la publication</dt>
+        <dd>Goundo Sakho</dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="profession">
+      <h2 id="profession">Profession réglementée</h2>
+      <dl>
+        <dt>Titre professionnel</dt>
+        <dd>Sage-femme, diplôme obtenu en France (Université Paris Cité)</dd>
+        <dt>Ordre professionnel</dt>
+        <dd>Ordre des sages-femmes, conseil départemental de <span class="todo">[À COMPLÉTER : département]</span></dd>
+        <dt>Numéro RPPS</dt>
+        <dd><span class="todo">[À COMPLÉTER : numéro RPPS]</span></dd>
+        <dt>Règles professionnelles</dt>
+        <dd>Code de la santé publique, notamment le code de déontologie des sages-femmes (articles R.&#8239;4127-301 et suivants)</dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="hebergeur">
+      <h2 id="hebergeur">Hébergeur</h2>
+      <dl>
+        <dt>Prestataire</dt>
+        <dd>Netlify <span class="todo">[À COMPLÉTER : raison sociale, adresse et téléphone de l'hébergeur]</span></dd>
+      </dl>
+    </section>
+
+    <section aria-labelledby="donnees">
+      <h2 id="donnees">Données personnelles</h2>
+      <p>Ce site ne dépose aucun cookie, n'utilise aucun outil de mesure d'audience et ne contient aucun formulaire.</p>
+      <p>Si vous m'écrivez par e-mail, les informations de votre message servent uniquement à répondre à votre demande. La responsable de ce traitement est Goundo Sakho.</p>
+      <p>Les e-mails de prise de rendez-vous sont supprimés au plus tard 3 mois après le rendez-vous.</p>
+      <p>Vous pouvez demander à accéder à vos données, à les corriger ou à les faire supprimer en écrivant à <a href="mailto:pro.goundo@gmail.com">pro.goundo@gmail.com</a>. Vous pouvez aussi adresser une réclamation à la CNIL (<a href="https://www.cnil.fr">www.cnil.fr</a>).</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="logo" src="img/logo-blush.png" alt="Goundo">
+    <span>Goundo Sakho · Sage-femme libérale · Paris 15<sup>e</sup></span>
+    <nav aria-label="Liens">
+      <a href="https://www.linkedin.com/in/goundo-sakho-4746551a8/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="index.html#rendez-vous">Contact</a>
+      <a href="mentions-legales.html" aria-current="page">Mentions légales</a>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>

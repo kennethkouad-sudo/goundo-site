@@ -131,7 +131,7 @@ Hand-drawn line icons sit next to the hero facts and next to each service. They 
    - a "Dans votre message" checklist (items: name; "Le type de consultation (grossesse, gynécologie, post-partum…)"; availability; a phone number to call back), followed by the plain line "Inutile de détailler votre situation par e-mail, on en parlera en consultation." It is styled as a page from her notebook taped onto the mûre band: papier card tilted 1.5°, a strip of mauve-poudré tape, a mauve margin rule, ruled lines and empty olive tick boxes;
    - an urgent-care line: "appelez le 15", inside the note on a mauve-poudré strip, with "15" in a mûre circle.
 9. **Footer**: logo, name, LinkedIn (the only social link she wants) and a "Mentions légales" link.
-10. **`mentions-legales.html`**: a separate page with the same header, footer, fonts and colors, linked from the footer of both pages. It is the one exception to the single-page rule.
+10. **`mentions-legales.html`**: a separate page with the same header, footer, fonts and colors, linked from the footer of both pages. It is the one exception to the single-page rule. Sections (built 28 October 2026): Éditrice du site (name, cabinet address, e-mail, directrice de la publication; no phone number, as decided); Profession réglementée (title, Ordre council, RPPS, professional rules); Hébergeur (Netlify); Données personnelles (no cookies, analytics or form; use of e-mails; 3-month deletion; rights and CNIL). No credits section unless the owner asks for one. Missing facts are shown as visible `[À COMPLÉTER : …]` placeholders; see `TODO-LEGAL.md`.
 
 ## 5. Motion (already built; keep it restrained)
 
@@ -147,7 +147,7 @@ Hand-drawn line icons sit next to the hero facts and next to each service. They 
 - Phone: **07 66 96 67 81**. Decided 28 October 2026: shown on **neither** page. The LCEN may require a phone number in the mentions légales; this is tracked in `TODO-LEGAL.md`.
 - Practice address: **62 rue des Entrepreneurs, 75015 Paris**. Decided 28 October 2026: shown in the contact section and in the mentions légales, as her cabinet (she also works in other places).
 - LinkedIn: https://www.linkedin.com/in/goundo-sakho-4746551a8/
-- Doctolib: not set up yet. When she has a link, the header "Prendre rendez-vous" and the hero "Demander un rendez-vous" switch to it; "Écrire un e-mail" stays an e-mail link. The link goes in `BOOKING_URL` in the script and in the `href` of the two `js-book` links (see `README.md`).
+- Doctolib: not set up yet. When she has a link, the header "Prendre rendez-vous" and the hero "Demander un rendez-vous" switch to it; "Écrire un e-mail" stays an e-mail link. The link goes in `BOOKING_URL` in the script and in the `href` of every `js-book` link, on both pages (see `README.md`).
 - Domain: **goundosakho.fr** (bought; DNS access comes later).
 - Host: **Netlify**, publishing this GitHub repository.
 
