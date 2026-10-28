@@ -92,6 +92,10 @@ Hand-drawn line icons sit next to the hero facts and next to each service. They 
 
 A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre line (stroke 3), mauve petals, olive flower centres. Goundo chose it instead of the two options first proposed (a Gloock "G", the logo's droplet). The source SVG is kept exactly as drawn in `brand/favicon-source.svg`. The site uses `favicon.svg` (identical copy), `favicon.ico` (32px) and `apple-touch-icon.png` (180px, with the corners filled in mauve poudré, because phones fill transparent corners with black and round the icon themselves). It is a site icon, not one of the line icons above, so the line-icon rules do not apply to it.
 
+### Sharing image (chosen 28 October 2026)
+
+`og-image.jpg`, 1200×630: mauve-poudré background, the logo in mûre and "Sage-femme libérale à Paris 15e" in Gloock on the left, her portrait in the centre on the offset mauve slab. The owner chose this centred layout so that messaging apps (WhatsApp, iMessage), which show a small square from the middle, still show her face. Both pages carry `og:` and `twitter:card` tags pointing to `https://goundosakho.fr/og-image.jpg`.
+
 ### Voice
 
 - Use *vous* on the site. *Tu* appears only in her handwritten notes ("Prends soin de ta santé").
