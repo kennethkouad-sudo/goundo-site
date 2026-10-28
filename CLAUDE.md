@@ -43,6 +43,8 @@ docs/BRIEF-site-goundo.md   the project brief (move it here from the root if it 
 CLAUDE.md                   this file
 ```
 
+**Since 28 October 2026 (owner decision), everything that is published lives in `site/`:** `site/index.html`, `site/img/`, `site/fonts/`, and later the mentions légales, favicon, sharing image, `robots.txt` and `sitemap.xml`. Everything else (docs, audit, `brand/`, this file) stays at the repository root and is never published. Netlify publishes `site/` only (`netlify.toml`). Paths inside the site stay relative (`img/…`, `fonts/…`).
+
 About `index.html`: it was written for a preview service that adds the document skeleton itself. So the file has **no** `<!doctype html>`, `<html>`, `<head>` or `<body>` tags, and it contains a meta tag that only that preview service uses: `<meta name="claude:viewport-fit-sides">`. Phase 2 turns it into a complete, standalone document.
 
 ---
@@ -126,14 +128,17 @@ Target structure (adjust it to the owner's answers to the audit):
 
 ```
 /
-├── index.html
-├── mentions-legales.html      (Phase 4, if approved)
-├── img/                       only the images the site uses (+ .webp versions)
-├── fonts/                     only the font files the site uses
-├── favicon.svg, favicon.ico, apple-touch-icon.png
-├── og-image.jpg               1200×630
-├── robots.txt, sitemap.xml
-├── brand/                     unused color variants of the logo and handwriting (not linked from the site)
+├── site/                      the published website, and nothing else
+│   ├── index.html
+│   ├── mentions-legales.html  (Phase 4)
+│   ├── img/                   only the images the site uses (+ .webp versions)
+│   ├── fonts/                 only the font files the site uses, with their licenses
+│   ├── favicon.svg, favicon.ico, apple-touch-icon.png
+│   ├── og-image.jpg           1200×630
+│   └── robots.txt, sitemap.xml
+├── netlify.toml               tells Netlify to publish site/ only
+├── brand/                     unused color variants of the logo, handwriting and fonts (not published)
+├── TODO-LEGAL.md
 ├── docs/BRIEF-site-goundo.md
 ├── AUDIT.md
 ├── CLAUDE.md
@@ -143,7 +148,7 @@ Target structure (adjust it to the owner's answers to the audit):
 - Run `git init`. First commit: the files exactly as delivered, so every later change can be reviewed as a diff.
 - Make one commit per phase, with a clear message.
 - Add a `.gitignore` for OS clutter and `node_modules/`, in case you use tooling such as image conversion or HTML validation. **Tooling never becomes part of the site.**
-- Local preview: `python3 -m http.server`. Nothing else is needed.
+- Local preview: `python3 -m http.server -d site`. Nothing else is needed.
 
 ## 5. Phase 2: turn `index.html` into a complete document
 
@@ -180,12 +185,17 @@ Contents (in French). Use placeholders for anything you have not been given:
 
 ## 8. Phase 5: images and performance
 
-- Make a `.webp` version of each image the site uses. Use lossless WebP (or quality 90 or higher) for the handwriting and the logo: they have transparency and thin strokes that must stay crisp. Size each one at about 2× its largest displayed width.
-- Serve them with `<picture>`: `.webp` first, the original as fallback. Keep the `alt` texts **exactly** as they are.
-- Add `width` and `height` attributes to every `<img>` to avoid layout shift.
-- Add `loading="lazy"` and `decoding="async"` to images below the fold. **Do not** add them to the hero images: logo, "Bienvenue", portrait, "À chaque étape".
-- Portrait: one 4:5 crop at about 900×1125, and one smaller one for phones (`srcset`). Keep the framing that `object-position: 48% 30%` gives today.
-- Target: the whole page under 600 KB on first load, fonts included.
+Done on 28 October 2026 and approved by the owner. These are the rules to follow for any image added or replaced later.
+
+- Make a `.webp` version of each image the site uses.
+  - **Handwriting:** lossless WebP at the cut-out's **full original size**. The PNGs are flat colors, so a resized copy picks up soft edge pixels and comes out *bigger*; full size is both smaller and sharper (owner decision, 28 October 2026).
+  - **Logo:** lossless WebP at about 2× its largest displayed width (`logo-mure` 352px, `logo-blush` 240px).
+  - Check the byte size: a WebP that is bigger than its original is not worth serving.
+- Serve them with `<picture>`: `.webp` first, the original as fallback. Keep the `alt` texts **exactly** as they are. The CSS has `picture { display: contents; }` and `picture source { display: none; }`, so the `<img>` keeps all the layout; without the second rule, the `<source>` adds an empty gap in grid and flex rows.
+- Add `width` and `height` attributes to every `<img>` (the fallback file's size) to avoid layout shift. `img { height: auto; }` keeps the ratio.
+- Add `loading="lazy"` and `decoding="async"` to images below the fold. **Do not** add them to the hero images: header logo, "Bienvenue", portrait, "À chaque étape".
+- Portrait: the source photo is only 800×800 (kept in `brand/goundo-original-800.jpg`), so the largest 4:5 crop is 640×800. The site uses `goundo-640.webp` and `goundo-400.webp` (`srcset`/`sizes`), with `goundo-640.jpg` as fallback and `fetchpriority="high"`. The crop reproduces the framing that `object-position: 48% 30%` gave (crop box x 77–717). If Goundo supplies a higher-resolution photo, make a 900×1125 crop the same way.
+- Target: the whole page under 600 KB on first load, fonts included (about 140 KB on a phone and 180 KB on a computer after Phase 5).
 
 ## 9. Phase 6: favicon, sharing and search
 
@@ -194,6 +204,8 @@ Contents (in French). Use placeholders for anything you have not been given:
   - the logo's droplet in olive on mauve poudré.
 
   The thin line of the full logo does not survive at 16px, so do not use it. Deliver `favicon.svg`, `favicon.ico` (32px) and `apple-touch-icon.png` (180px).
+
+  **Done, 28 October 2026:** Goundo chose neither option but her own drawing, a uterus with flowers as ovaries. Its source is `brand/favicon-source.svg`, used exactly as drawn (see the brief, section 3).
 - **Sharing image (`og-image.jpg`, 1200×630).** The portrait on a mauve-poudré background, the logo in mûre, and the line "Sage-femme libérale à Paris 15e". Add the `og:` and `twitter:card` tags. Show the image to the owner before committing it.
 - `robots.txt` and `sitemap.xml`, with the final domain. Use a placeholder until the domain is known.
 - Structured data (JSON-LD): add it only after the address is confirmed, and only with facts given by the owner.
@@ -201,7 +213,7 @@ Contents (in French). Use placeholders for anything you have not been given:
 
 ## 10. Phase 7: deployment
 
-- Use the host the owner chose during the audit. The site has no build, so deployment means publishing the repository root (or a `public/` folder, if you created one).
+- Use the host the owner chose during the audit. The site has no build, so deployment means publishing the `site/` folder only (set in `netlify.toml`).
 - Connect the domain, and check that HTTPS and the redirect from `www` to the bare domain (or the other way round) work.
 - Put the final hosting details into the mentions légales.
 
