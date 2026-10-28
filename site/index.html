@@ -1,21 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Goundo Sakho, sage-femme</title>
-<meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Goundo Sakho, sage-femme libérale à Paris 15e : suivi de grossesse, préparation à la naissance, suivi gynécologique, post-partum et rééducation du périnée.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<link rel="preload" href="fonts/gloock-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+/* Fonts: self-hosted, SIL Open Font License (fonts/OFL-*.txt). Instrument Sans is the variable file, so 400, 500 and 600 all come from it. */
+@font-face { font-family: "Gloock"; font-style: normal; font-weight: 400; font-display: swap; src: url("fonts/gloock-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url("fonts/instrument-sans-latin-wght-normal.woff2") format("woff2"); }
+
 /* Layout: a midwife's notebook. Printed type carries the facts, her own handwriting sits in the margins. */
 :root {
-  --blush: #E9D6DC;
-  --paper: #F7F0F2;
-  --mure: #4A2A36;
-  --olive: #5F6640;
-  --mauve: #B07B8C;
-  --ink: #3A2430;
-  --ink-soft: #6E5762;
-  --on-dark: #F7EEF1;
-  --on-dark-soft: #D9C2CB;
+  /* Brand colors. Names in the brief (section 3) in the comments. */
+  --blush: #E9D6DC;         /* mauve-poudre */
+  --paper: #F7F0F2;         /* papier */
+  --mure: #4A2A36;          /* mure */
+  --olive: #5F6640;         /* olive */
+  --olive-text: #5A613D;    /* olive-texte: small olive text on mauve poudré (AA contrast) */
+  --mauve: #B07B8C;         /* mauve: accents only, never text */
+  --ink: #3A2430;           /* encre */
+  --ink-soft: #6E5762;      /* encre-douce */
+  --on-dark: #F7EEF1;       /* nacre */
+  --on-dark-soft: #D9C2CB;  /* nacre-douce */
   --line: rgba(74, 42, 54, .16);
   --line-dark: rgba(247, 238, 241, .2);
   --display: "Gloock", "Iowan Old Style", Georgia, serif;
@@ -30,9 +39,12 @@ img { max-width: 100%; display: block; }
 a { color: inherit; }
 h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
 p { margin: 0; }
+/* Ordinals ("15e"): a raised e that does not push lines apart. The H1 keeps its approved smaller size. */
+sup { font-size: .7em; line-height: 0; }
+h1 sup { font-size: .45em; line-height: inherit; }
 .wrap { max-width: var(--max); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 .band { padding-block: clamp(4rem, 9vw, 7rem); }
-.label { font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
+.label { font-family: var(--body); line-height: 1.65; font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
 .hand { height: auto; width: auto; user-select: none; pointer-events: none; }
 :focus-visible { outline: 2px solid var(--olive); outline-offset: 3px; border-radius: 4px; }
 
@@ -49,6 +61,7 @@ p { margin: 0; }
 /* Header */
 .top { background: var(--blush); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.4rem; }
+.top .logo { flex: none; }
 .top .logo img { width: 11rem; }
 .top nav { display: flex; align-items: center; gap: 2rem; font-size: .95rem; font-weight: 500; }
 .top nav a:not(.btn) { text-decoration: none; color: var(--mure); }
@@ -59,7 +72,7 @@ p { margin: 0; }
 .hero { background: var(--blush); padding-block: clamp(2.5rem, 6vw, 5rem) clamp(4rem, 8vw, 6.5rem); overflow: hidden; }
 .hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(2.5rem, 6vw, 5.5rem); align-items: center; }
 .hero-text { min-width: 0; }
-.hero .bienvenue { width: clamp(10rem, 20vw, 14rem); margin: 0 0 1.4rem -.2rem; animation: write 1.6s cubic-bezier(.45, .05, .3, 1) .25s both; }
+.hero .bienvenue { width: clamp(10rem, 20vw, 14rem); margin: 0 0 1.4rem -.2rem; rotate: -2.5deg; animation: write 1.6s cubic-bezier(.45, .05, .3, 1) .25s both; }
 @keyframes write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 .hero h1 { font-size: clamp(2.6rem, 6.2vw, 4.6rem); color: var(--mure); }
 .hero h1 em { font-style: normal; color: var(--olive); }
@@ -75,7 +88,7 @@ p { margin: 0; }
 .hero .where .fact { display: flex; align-items: center; gap: 1rem; min-width: 0; font-size: 1.02rem; font-weight: 500; line-height: 1.35; color: var(--mure); text-wrap: balance; }
 .hero .where .disc { background: var(--paper); }
 
-.portrait { position: relative; min-width: 0; padding: 0 0 3rem 1.5rem; }
+.portrait { position: relative; min-width: 0; margin: 0; padding: 0 0 3rem 1.5rem; }
 .portrait::before { content: ""; position: absolute; inset: 2.2rem -2rem 1rem 0; background: var(--mauve); border-radius: 2px; }
 .portrait .frame { position: relative; aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; border-radius: 2px; }
 .portrait .frame img { width: 100%; height: 100%; object-fit: cover; object-position: 48% 30%; }
@@ -103,6 +116,8 @@ p { margin: 0; }
 .who li span { color: var(--on-dark-soft); font-size: .95rem; }
 
 /* Services */
+/* clip, not hidden: the highlighted row bleeds into the margin, and a scroll container would break the scroll-driven animations. */
+.soins { overflow-x: clip; }
 .soins .intro { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem; }
 .soins h2 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--mure); margin-top: .9rem; }
 .soins .intro p { max-width: 26rem; color: var(--ink-soft); }
@@ -112,6 +127,7 @@ p { margin: 0; }
 .svc-head { display: flex; align-items: flex-start; gap: 1.2rem; min-width: 0; }
 .svc-head h3 { min-width: 0; }
 .service.featured .disc { background: var(--paper); }
+.service.featured .stage { color: var(--olive-text); }
 .service .stage { display: block; font-family: var(--body); font-size: .85rem; color: var(--olive); font-weight: 600; letter-spacing: .02em; margin-bottom: .55rem; }
 .service .desc { min-width: 0; display: grid; gap: 1rem; align-content: start; }
 .service .desc p { max-width: 36rem; }
@@ -124,10 +140,11 @@ p { margin: 0; }
 /* Path */
 .path { background: var(--blush); }
 .path .wrap { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.path .label { color: var(--olive-text); }
 .path h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--mure); margin-top: .9rem; }
 .path .bio { display: grid; gap: 1.1rem; margin-top: 1.6rem; max-width: 34rem; }
 .path .sign { display: flex; align-items: center; gap: 1.2rem; margin-top: 1rem; }
-.path .sign .hand { width: 11rem; }
+.path .sign .hand { width: 11rem; rotate: -2.5deg; }
 .path .sign .logo { width: 8.5rem; }
 /* Two tracks, each read from most recent to oldest, with full years everywhere. */
 .tracks { display: grid; gap: 2.4rem; min-width: 0; --tcol: 6.2rem; }
@@ -137,7 +154,7 @@ p { margin: 0; }
 .timeline li { display: grid; grid-template-columns: var(--tcol) minmax(0, 1fr); gap: 0 1.6rem; padding-block: 1rem; position: relative; }
 .timeline li::after { content: ""; position: absolute; left: calc(var(--tcol) - 4px); top: 1.55rem; width: 9px; height: 9px; border-radius: 50%; background: var(--blush); border: 1.5px solid var(--mure); }
 .timeline li.now::after { background: var(--olive); border-color: var(--olive); }
-.timeline time { font-size: .85rem; font-weight: 600; color: var(--olive); padding-top: .25rem; font-variant-numeric: tabular-nums; }
+.timeline .when { font-size: .85rem; font-weight: 600; color: var(--olive-text); padding-top: .25rem; font-variant-numeric: tabular-nums; }
 .timeline div { padding-left: .4rem; }
 .timeline strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.25rem; line-height: 1.25; color: var(--mure); }
 .timeline span { font-size: .93rem; color: var(--ink-soft); }
@@ -145,8 +162,8 @@ p { margin: 0; }
 /* Thesis */
 .memoire .wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
 .memoire blockquote { margin: 0; font-family: var(--display); font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.18; color: var(--mure); max-width: 52rem; text-wrap: balance; }
-.memoire blockquote::before { content: "« "; color: var(--mauve); }
-.memoire blockquote::after { content: " »"; color: var(--mauve); }
+.memoire blockquote::before { content: "« "; color: var(--olive); }
+.memoire blockquote::after { content: " »"; color: var(--olive); }
 .memoire .meta { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2rem clamp(2rem, 6vw, 5rem); align-items: start; padding-top: 2rem; border-top: 1px solid var(--line); }
 .memoire .meta p { max-width: 36rem; }
 .memoire .meta .side { display: grid; gap: 1rem; justify-items: start; font-size: .95rem; color: var(--ink-soft); }
@@ -173,18 +190,18 @@ p { margin: 0; }
 .checklist li::before { content: ""; width: .9rem; height: .9rem; margin-top: .38em; border: 1.4px solid var(--olive); border-radius: 3px; }
 .checklist .urgent { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: center; margin-top: 1.5rem; padding: 1rem 1.1rem; background: var(--blush); font-size: .92rem; line-height: 1.5; color: var(--ink); }
 .checklist .urgent .num { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--mure); color: var(--on-dark); font-family: var(--display); font-size: 1.35rem; line-height: 1; }
-.checklist .urgent b { color: var(--mure); }
+.checklist .urgent b { color: var(--mure); font-weight: 600; }
 
 footer { background: var(--mure); color: var(--on-dark-soft); font-size: .88rem; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem 2rem; padding-block: 2rem 2.4rem; border-top: 1px solid var(--line-dark); }
-footer .logo { width: 7rem; }
+footer .logo { width: 7.5rem; }
 footer nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 footer a { color: var(--on-dark); text-underline-offset: 3px; }
 
 @media (max-width: 860px) {
   .top nav a:not(.btn) { display: none; }
   .hero .wrap, .role .wrap, .path .wrap, .contact .wrap, .memoire .meta { grid-template-columns: minmax(0, 1fr); }
-  .portrait { max-width: 26rem; margin-inline: auto 1.5rem; }
+  .portrait { max-width: 26rem; } /* the approved look keeps margin: 0 here (an inline style used to override a margin-inline rule) */
   .service { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 720px) {
@@ -196,7 +213,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
   .role .facts div:nth-child(odd) { padding-right: 0; }
   .tracks { --tcol: 5.3rem; }
   .timeline li { gap: 0 1.2rem; }
-  .timeline time { font-size: .78rem; }
+  .timeline .when { font-size: .78rem; }
   .disc { width: 3.9rem; height: 3.9rem; padding: .5rem; }
   .svc-head { gap: .9rem; }
   .portrait::before { right: -1rem; }
@@ -274,6 +291,8 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
   .btn { transition: none; }
 }
 </style>
+</head>
+<body>
 
 <header class="top">
   <div class="wrap">
@@ -292,7 +311,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
     <div class="wrap">
       <div class="hero-text">
         <img class="hand bienvenue" src="img/bienvenue-olive.png" alt="Bienvenue">
-        <h1>Sage-femme libérale à Paris&nbsp;15<sup style="font-size:.45em">e</sup>, pour votre santé de <em>femme</em>, à tout âge.</h1>
+        <h1>Sage-femme libérale à Paris&nbsp;15<sup>e</sup>, pour votre santé de <em>femme</em>, à tout âge.</h1>
         <p class="lead">Je suis Goundo Sakho. Je vous accompagne pendant la grossesse et après la naissance, et pour votre suivi gynécologique : contraception, dépistage, infections, projet de bébé.</p>
         <div class="actions">
           <a class="btn btn-olive js-mail" href="#rendez-vous">
@@ -302,14 +321,14 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
           <a class="btn btn-ghost" href="#soins">Voir les soins</a>
         </div>
       </div>
-      <figure class="portrait" style="margin:0">
+      <figure class="portrait">
         <div class="frame"><img src="img/goundo.jpg" alt="Portrait de Goundo Sakho, sage-femme, souriante, lunettes et haut couleur cacao"></div>
         <div class="note"><img class="hand" src="img/chaque-etape-mure.png" alt="À chaque étape"></div>
       </figure>
       <div class="where">
         <div class="fact draw" data-delay="1">
           <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4.5v4"/><path d="M22.3 8.5h3.4"/><path d="M22.6 8.5C22.3 21 19 33 10.5 44"/><path d="M25.4 8.5C25.7 21 29 33 37.5 44"/><path d="M20.9 21h6.2"/><path d="M17.2 31.5h13.6"/><path d="M21.2 21.6l6 9.3M26.8 21.6l-6 9.3"/><path class="o" d="M16.8 44c1.8-5.2 4.3-7.8 7.2-7.8s5.4 2.6 7.2 7.8"/><circle class="d" cx="24" cy="3.2" r="1.3"/></svg></span>
-          <span class="txt">Cabinet à Paris 15e</span>
+          <span class="txt">Cabinet à Paris 15<sup>e</sup></span>
         </div>
         <div class="fact draw" data-delay="1.35">
           <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 11h24a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V15a4 4 0 0 1 4-4z"/><path d="M8 19.5h32"/><path d="M16.5 7.5v7M31.5 7.5v7"/><path class="o" d="M18 29.5l4.2 4.2 8.3-8.7"/></svg></span>
@@ -384,7 +403,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
       <article class="service">
         <div class="svc-head draw">
           <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 18h24c3.6 0 6.2-2.6 6.2-5.7S32.8 7 30.2 7c-2.6 0-4.4 1.9-4.4 4.3"/><path d="M5 26.5h32c3.2 0 5.6 2.5 5.6 5.4s-2.3 5.3-5 5.3c-2.6 0-4.4-1.9-4.4-4.2"/><path class="o" d="M9 35h14"/><circle class="d" cx="25.6" cy="35" r="1.3"/></svg></span>
-          <h3><span class="stage">Avant la naissance</span>Préparation à l'accouchement</h3>
+          <h3><span class="stage">Avant la naissance</span>Préparation à la naissance</h3>
         </div>
         <div class="desc">
           <p>Comprendre le déroulement du travail, apprendre à respirer et à bouger, préparer le retour à la maison. Seule ou avec la personne qui vous accompagnera.</p>
@@ -398,7 +417,8 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         </div>
         <div class="desc">
           <p>Un espace pour parler de votre corps simplement, sans jugement et sans gêne.</p>
-          <ul class="chips" aria-label="Motifs de consultation gynécologique">
+          <span id="chips-label" hidden>Motifs de consultation gynécologique</span>
+          <ul class="chips" aria-labelledby="chips-label">
             <li>Consultation IST</li>
             <li>Infection vaginale</li>
             <li>Infection urinaire</li>
@@ -441,7 +461,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         <div class="bio">
           <p>Je me suis formée à Paris, d'abord en médecine, puis en maïeutique à l'Université Paris Cité.</p>
           <p>J'ai travaillé en soins à domicile, puis en PMA à l'hôpital Antoine-Béclère, auprès de couples engagés dans un parcours de diagnostic préimplantatoire. Ces expériences m'ont appris une chose : on soigne mieux quand on prend le temps d'écouter.</p>
-          <p>Depuis juillet 2026, je reçois en libéral à Paris 15e.</p>
+          <p>Depuis juillet 2026, je reçois en libéral à Paris 15<sup>e</sup>.</p>
         </div>
         <div class="sign">
           <img class="hand" src="img/a-tres-vite-mure.png" alt="À très vite">
@@ -452,16 +472,16 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         <div class="track">
           <p class="label" id="track-exercice">Expérience</p>
           <ol class="timeline" aria-labelledby="track-exercice">
-            <li class="now"><time>Depuis 2026</time><div><strong>Installation en libéral</strong><span>Sage-femme libérale, Paris 15e</span></div></li>
-            <li><time>2025&#8239;–&#8239;2026</time><div><strong>Sage-femme référente du diagnostic préimplantatoire, PMA</strong><span>Hôpital Antoine-Béclère, Clamart</span></div></li>
-            <li><time>2025</time><div><strong>Sage-femme en soins à domicile</strong><span>Fondation Santé Service, Levallois-Perret</span></div></li>
+            <li class="now"><span class="when">Depuis 2026</span><div><strong>Installation en libéral</strong><span>Sage-femme libérale, Paris 15<sup>e</sup></span></div></li>
+            <li><span class="when">2025&#8239;–&#8239;2026</span><div><strong>Sage-femme référente du diagnostic préimplantatoire, PMA</strong><span>Hôpital Antoine-Béclère, Clamart</span></div></li>
+            <li><span class="when">2025</span><div><strong>Sage-femme en soins à domicile</strong><span>Fondation Santé Service, Levallois-Perret</span></div></li>
           </ol>
         </div>
         <div class="track">
           <p class="label" id="track-formation">Formation</p>
           <ol class="timeline" aria-labelledby="track-formation">
-            <li><time>2021&#8239;–&#8239;2026</time><div><strong>Master en sciences maïeutiques</strong><span>Université Paris Cité</span></div></li>
-            <li><time>2019&#8239;–&#8239;2021</time><div><strong>Licence de médecine (PACES)</strong><span>Université Sorbonne Paris Nord, classée 4e sur 206</span></div></li>
+            <li><span class="when">2021&#8239;–&#8239;2026</span><div><strong>Master en sciences maïeutiques</strong><span>Université Paris Cité</span></div></li>
+            <li><span class="when">2019&#8239;–&#8239;2021</span><div><strong>Licence de médecine (PACES)</strong><span>Université Sorbonne Paris Nord, classée 4<sup>e</sup> sur 206</span></div></li>
           </ol>
         </div>
       </div>
@@ -470,7 +490,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 
   <section class="memoire band" id="memoire" aria-labelledby="memoire-title">
     <div class="wrap">
-      <p class="label" id="memoire-title">Mon mémoire de fin d'études</p>
+      <h2 class="label" id="memoire-title">Mon mémoire de fin d'études</h2>
       <blockquote>Le groupe de parole dans la prise en charge des femmes concernées par les mutilations sexuelles féminines</blockquote>
       <div class="meta">
         <p>J'ai consacré mon mémoire à ce que la parole partagée apporte aux femmes ayant subi une excision. Si vous êtes concernée, vous pouvez m'en parler en consultation. Je vous écouterai, et je vous orienterai si vous le souhaitez.</p>
@@ -491,7 +511,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         <div class="mailcard">
           <div class="mailrow">
             <span class="mail" id="mail-text">contact@exemple.fr</span>
-            <button class="copy" id="copy-btn" type="button">Copier l'adresse</button>
+            <button class="copy" id="copy-btn" type="button" aria-live="polite" hidden>Copier l'adresse</button>
           </div>
           <p class="subject">Objet du message : <b>Prise de rendez-vous</b></p>
           <a class="btn btn-light js-mail" href="#rendez-vous">Écrire un e-mail
@@ -516,7 +536,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 <footer>
   <div class="wrap">
     <img class="logo" src="img/logo-blush.png" alt="Goundo">
-    <span>Goundo Sakho · Sage-femme libérale · Paris 15e</span>
+    <span>Goundo Sakho · Sage-femme libérale · Paris 15<sup>e</sup></span>
     <nav aria-label="Liens">
       <a href="https://www.linkedin.com/in/goundo-sakho-4746551a8/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="#rendez-vous">Contact</a>
@@ -532,6 +552,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
   document.getElementById("mail-text").textContent = EMAIL;
   document.querySelectorAll(".js-mail").forEach(function (a) { a.setAttribute("href", href); });
   var btn = document.getElementById("copy-btn");
+  btn.hidden = false; // without JS the button could not copy anything, so it stays hidden
   btn.addEventListener("click", function () {
     var done = function () { btn.textContent = "Adresse copiée"; setTimeout(function () { btn.textContent = "Copier l'adresse"; }, 2000); };
     var select = function () { var r = document.createRange(); r.selectNodeContents(document.getElementById("mail-text")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Adresse sélectionnée"; };
@@ -570,3 +591,5 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
   items.forEach(function (item) { io.observe(item); });
 })();
 </script>
+</body>
+</html>
