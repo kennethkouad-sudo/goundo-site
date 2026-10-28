@@ -1,0 +1,572 @@
+<title>Goundo Sakho, sage-femme</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Goundo Sakho, sage-femme libérale à Paris 15e : suivi de grossesse, préparation à la naissance, suivi gynécologique, post-partum et rééducation du périnée.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gloock&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+/* Layout: a midwife's notebook. Printed type carries the facts, her own handwriting sits in the margins. */
+:root {
+  --blush: #E9D6DC;
+  --paper: #F7F0F2;
+  --mure: #4A2A36;
+  --olive: #5F6640;
+  --mauve: #B07B8C;
+  --ink: #3A2430;
+  --ink-soft: #6E5762;
+  --on-dark: #F7EEF1;
+  --on-dark-soft: #D9C2CB;
+  --line: rgba(74, 42, 54, .16);
+  --line-dark: rgba(247, 238, 241, .2);
+  --display: "Gloock", "Iowan Old Style", Georgia, serif;
+  --body: "Instrument Sans", "Segoe UI", system-ui, sans-serif;
+  --max: 72rem;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; }
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.band { padding-block: clamp(4rem, 9vw, 7rem); }
+.label { font-size: .78rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); }
+.hand { height: auto; width: auto; user-select: none; pointer-events: none; }
+:focus-visible { outline: 2px solid var(--olive); outline-offset: 3px; border-radius: 4px; }
+
+.btn { display: inline-flex; align-items: center; gap: .6rem; padding: .85rem 1.4rem; border-radius: 999px; font-weight: 600; font-size: .98rem; text-decoration: none; border: 1.5px solid transparent; transition: transform .2s ease, background-color .2s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-olive { background: var(--olive); color: var(--on-dark); }
+.btn-olive:hover { background: #4f5535; }
+.btn-ghost { border-color: var(--mure); color: var(--mure); }
+.btn-ghost:hover { background: rgba(74, 42, 54, .06); }
+.btn-light { background: var(--on-dark); color: var(--mure); }
+.btn-light:hover { background: #fff; }
+.btn svg { width: 1em; height: 1em; }
+
+/* Header */
+.top { background: var(--blush); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.4rem; }
+.top .logo img { width: 11rem; }
+.top nav { display: flex; align-items: center; gap: 2rem; font-size: .95rem; font-weight: 500; }
+.top nav a:not(.btn) { text-decoration: none; color: var(--mure); }
+.top nav a:not(.btn):hover { text-decoration: underline; text-underline-offset: 4px; }
+.top .btn { padding: .6rem 1.1rem; font-size: .9rem; }
+
+/* Hero */
+.hero { background: var(--blush); padding-block: clamp(2.5rem, 6vw, 5rem) clamp(4rem, 8vw, 6.5rem); overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(2.5rem, 6vw, 5.5rem); align-items: center; }
+.hero-text { min-width: 0; }
+.hero .bienvenue { width: clamp(10rem, 20vw, 14rem); margin: 0 0 1.4rem -.2rem; animation: write 1.6s cubic-bezier(.45, .05, .3, 1) .25s both; }
+@keyframes write { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+.hero h1 { font-size: clamp(2.6rem, 6.2vw, 4.6rem); color: var(--mure); }
+.hero h1 em { font-style: normal; color: var(--olive); }
+.hero .lead { margin-top: 1.6rem; max-width: 34rem; font-size: 1.15rem; color: var(--ink); }
+.hero .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2.2rem; }
+/* Line icons: same thin stroke and droplet ends as the logo. Mûre line, one olive detail. */
+.ico { width: 100%; height: 100%; fill: none; stroke: var(--mure); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.ico .o { stroke: var(--olive); }
+.ico .d { fill: var(--olive); stroke: none; }
+.disc { flex: none; display: grid; place-items: center; width: 4.6rem; height: 4.6rem; padding: .6rem; border-radius: 50%; background: var(--blush); }
+
+.hero .where { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem clamp(1.5rem, 4vw, 3.5rem); padding-top: 1.8rem; border-top: 1px solid var(--line); }
+.hero .where .fact { display: flex; align-items: center; gap: 1rem; min-width: 0; font-size: 1.02rem; font-weight: 500; line-height: 1.35; color: var(--mure); text-wrap: balance; }
+.hero .where .disc { background: var(--paper); }
+
+.portrait { position: relative; min-width: 0; padding: 0 0 3rem 1.5rem; }
+.portrait::before { content: ""; position: absolute; inset: 2.2rem -2rem 1rem 0; background: var(--mauve); border-radius: 2px; }
+.portrait .frame { position: relative; aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; border-radius: 2px; }
+.portrait .frame img { width: 100%; height: 100%; object-fit: cover; object-position: 48% 30%; }
+.portrait .note { position: absolute; left: -1.2rem; bottom: .2rem; width: clamp(10rem, 19vw, 13.5rem); background: var(--paper); padding: .9rem 1.1rem .7rem; transform: rotate(-3deg); box-shadow: 0 10px 30px -18px rgba(74, 42, 54, .55); }
+
+/* Role */
+.role .wrap { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 6vw, 6rem); }
+.role h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--mure); margin-top: .9rem; }
+.role .body { display: grid; gap: 1.2rem; max-width: 38rem; min-width: 0; }
+.role .body p:first-child { font-size: 1.2rem; color: var(--mure); }
+.role .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-top: 1rem; border-top: 1px solid var(--line); }
+.role .facts div { padding: 1.1rem 1.2rem 1.1rem 0; border-bottom: 1px solid var(--line); font-size: .95rem; color: var(--ink-soft); }
+.role .facts div:nth-child(odd) { padding-right: 1.6rem; }
+.role .facts strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.2rem; color: var(--mure); margin-bottom: .2rem; }
+
+/* For whom */
+.who { background: var(--mure); color: var(--on-dark); }
+.who .head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; }
+.who .label { color: var(--on-dark-soft); }
+.who h2 { font-size: clamp(2rem, 4vw, 3rem); margin-top: .9rem; max-width: 30rem; }
+.who .head img { width: clamp(15rem, 30vw, 22rem); margin-bottom: .4rem; transform: rotate(-2deg); }
+.who ul { list-style: none; padding: 0; margin: 3rem 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: 0; border-top: 1px solid var(--line-dark); }
+.who li { padding: 1.6rem 1.6rem 1.6rem 0; border-bottom: 1px solid var(--line-dark); }
+.who li strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.45rem; line-height: 1.2; margin-bottom: .5rem; }
+.who li span { color: var(--on-dark-soft); font-size: .95rem; }
+
+/* Services */
+.soins .intro { display: flex; justify-content: space-between; align-items: end; gap: 2rem; flex-wrap: wrap; margin-bottom: 3rem; }
+.soins h2 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); color: var(--mure); margin-top: .9rem; }
+.soins .intro p { max-width: 26rem; color: var(--ink-soft); }
+.service { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 1.2rem clamp(2rem, 5vw, 5rem); padding-block: 2.2rem; border-top: 1px solid var(--line); position: relative; }
+.service:last-child { border-bottom: 1px solid var(--line); }
+.service h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); color: var(--mure); }
+.svc-head { display: flex; align-items: flex-start; gap: 1.2rem; min-width: 0; }
+.svc-head h3 { min-width: 0; }
+.service.featured .disc { background: var(--paper); }
+.service .stage { display: block; font-family: var(--body); font-size: .85rem; color: var(--olive); font-weight: 600; letter-spacing: .02em; margin-bottom: .55rem; }
+.service .desc { min-width: 0; display: grid; gap: 1rem; align-content: start; }
+.service .desc p { max-width: 36rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .5rem; list-style: none; padding: 0; margin: 0; }
+.chips li { font-size: .88rem; padding: .35rem .8rem; border-radius: 999px; background: var(--blush); color: var(--mure); }
+.service .margin { width: clamp(14rem, 26vw, 19rem); transform: rotate(-2.5deg); margin-top: .4rem; }
+.service.featured { background: var(--blush); border-top-color: transparent; margin-inline: calc(-1 * clamp(1rem, 3vw, 2rem)); padding-inline: clamp(1rem, 3vw, 2rem); border-radius: 2px; }
+.service.featured + .service { border-top-color: transparent; }
+
+/* Path */
+.path { background: var(--blush); }
+.path .wrap { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.path h2 { font-size: clamp(2rem, 4vw, 3rem); color: var(--mure); margin-top: .9rem; }
+.path .bio { display: grid; gap: 1.1rem; margin-top: 1.6rem; max-width: 34rem; }
+.path .sign { display: flex; align-items: center; gap: 1.2rem; margin-top: 1rem; }
+.path .sign .hand { width: 11rem; }
+.path .sign .logo { width: 8.5rem; }
+/* Two tracks, each read from most recent to oldest, with full years everywhere. */
+.tracks { display: grid; gap: 2.4rem; min-width: 0; --tcol: 6.2rem; }
+.track .label { padding-bottom: .5rem; margin-bottom: .2rem; border-bottom: 1px solid var(--line); }
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; min-width: 0; }
+.timeline::before { content: ""; position: absolute; left: var(--tcol); top: 1.6rem; bottom: 1.6rem; width: 1px; background: rgba(74, 42, 54, .25); }
+.timeline li { display: grid; grid-template-columns: var(--tcol) minmax(0, 1fr); gap: 0 1.6rem; padding-block: 1rem; position: relative; }
+.timeline li::after { content: ""; position: absolute; left: calc(var(--tcol) - 4px); top: 1.55rem; width: 9px; height: 9px; border-radius: 50%; background: var(--blush); border: 1.5px solid var(--mure); }
+.timeline li.now::after { background: var(--olive); border-color: var(--olive); }
+.timeline time { font-size: .85rem; font-weight: 600; color: var(--olive); padding-top: .25rem; font-variant-numeric: tabular-nums; }
+.timeline div { padding-left: .4rem; }
+.timeline strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.25rem; line-height: 1.25; color: var(--mure); }
+.timeline span { font-size: .93rem; color: var(--ink-soft); }
+
+/* Thesis */
+.memoire .wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+.memoire blockquote { margin: 0; font-family: var(--display); font-size: clamp(1.8rem, 3.8vw, 3rem); line-height: 1.18; color: var(--mure); max-width: 52rem; text-wrap: balance; }
+.memoire blockquote::before { content: "« "; color: var(--mauve); }
+.memoire blockquote::after { content: " »"; color: var(--mauve); }
+.memoire .meta { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2rem clamp(2rem, 6vw, 5rem); align-items: start; padding-top: 2rem; border-top: 1px solid var(--line); }
+.memoire .meta p { max-width: 36rem; }
+.memoire .meta .side { display: grid; gap: 1rem; justify-items: start; font-size: .95rem; color: var(--ink-soft); }
+
+/* Contact */
+.contact { background: var(--mure); color: var(--on-dark); }
+.contact .wrap { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
+.contact .label { color: var(--on-dark-soft); }
+.contact h2 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); margin-top: .9rem; }
+.contact .lead { margin-top: 1.4rem; max-width: 32rem; color: var(--on-dark-soft); font-size: 1.1rem; }
+.mailcard { margin-top: 2rem; display: grid; gap: 1rem; justify-items: start; }
+.mailrow { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; }
+.mail { font-family: var(--display); font-size: clamp(1.3rem, 2.6vw, 1.8rem); color: var(--on-dark); user-select: all; overflow-wrap: anywhere; }
+.copy { background: transparent; color: var(--on-dark-soft); border: 1px solid var(--line-dark); border-radius: 999px; padding: .35rem .9rem; font: 500 .85rem var(--body); cursor: pointer; }
+.copy:hover { color: var(--on-dark); border-color: var(--on-dark-soft); }
+.subject { font-size: .92rem; color: var(--on-dark-soft); }
+.subject b { color: var(--on-dark); font-weight: 600; }
+/* "Dans votre message": a page from her notebook, taped onto the mûre band. Ruled lines, a mauve margin rule, empty boxes to tick. */
+.checklist { --margin: 2.6rem; position: relative; min-width: 0; margin-top: .6rem; padding: 2.1rem 1.8rem 1.7rem calc(var(--margin) + 1.1rem); background: var(--paper) linear-gradient(to right, transparent var(--margin), var(--mauve) var(--margin), var(--mauve) calc(var(--margin) + 1px), transparent calc(var(--margin) + 1px)); color: var(--ink); border-radius: 2px; rotate: 1.5deg; box-shadow: 0 28px 50px -30px rgba(20, 8, 14, .8); }
+.checklist::before { content: ""; position: absolute; top: -.75rem; left: 50%; width: 6rem; height: 1.5rem; translate: -50% 0; rotate: -4deg; background: rgba(233, 214, 220, .82); }
+.checklist h3 { font-size: 1.6rem; color: var(--mure); }
+.checklist ul { margin: .9rem 0 0; padding: 0; list-style: none; }
+.checklist li { display: grid; grid-template-columns: 1.7rem minmax(0, 1fr); align-items: start; padding-block: .62rem; border-bottom: 1px solid var(--line); }
+.checklist li::before { content: ""; width: .9rem; height: .9rem; margin-top: .38em; border: 1.4px solid var(--olive); border-radius: 3px; }
+.checklist .urgent { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: center; margin-top: 1.5rem; padding: 1rem 1.1rem; background: var(--blush); font-size: .92rem; line-height: 1.5; color: var(--ink); }
+.checklist .urgent .num { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--mure); color: var(--on-dark); font-family: var(--display); font-size: 1.35rem; line-height: 1; }
+.checklist .urgent b { color: var(--mure); }
+
+footer { background: var(--mure); color: var(--on-dark-soft); font-size: .88rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem 2rem; padding-block: 2rem 2.4rem; border-top: 1px solid var(--line-dark); }
+footer .logo { width: 7rem; }
+footer nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+footer a { color: var(--on-dark); text-underline-offset: 3px; }
+
+@media (max-width: 860px) {
+  .top nav a:not(.btn) { display: none; }
+  .hero .wrap, .role .wrap, .path .wrap, .contact .wrap, .memoire .meta { grid-template-columns: minmax(0, 1fr); }
+  .portrait { max-width: 26rem; margin-inline: auto 1.5rem; }
+  .service { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 720px) {
+  .hero .where { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+}
+@media (max-width: 520px) {
+  .top .logo img { width: 7.5rem; }
+  .role .facts { grid-template-columns: minmax(0, 1fr); }
+  .role .facts div:nth-child(odd) { padding-right: 0; }
+  .tracks { --tcol: 5.3rem; }
+  .timeline li { gap: 0 1.2rem; }
+  .timeline time { font-size: .78rem; }
+  .disc { width: 3.9rem; height: 3.9rem; padding: .5rem; }
+  .svc-head { gap: .9rem; }
+  .portrait::before { right: -1rem; }
+  .hero .actions .btn { flex: 1 1 100%; justify-content: center; }
+  .checklist { --margin: 1.8rem; rotate: .7deg; margin-inline: 4px; padding-right: 1.2rem; }
+  .checklist .urgent { padding: .9rem; gap: .8rem; }
+  .checklist .urgent .num { width: 2.6rem; height: 2.6rem; font-size: 1.15rem; }
+}
+/* Motion: one opening sequence in the hero, then the page writes itself in as you scroll. */
+@keyframes rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+@keyframes slab { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes unveil { from { clip-path: inset(100% 0 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes settle { from { transform: scale(1.14); } to { transform: scale(1); } }
+@keyframes drop { from { opacity: 0; transform: translateY(-18px) rotate(5deg); } to { opacity: 1; transform: rotate(-3deg); } }
+@keyframes grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes pop { from { transform: scale(0); } to { transform: scale(1); } }
+@keyframes breathe { 0%, 100% { transform: rotate(-3deg) translateY(0); } 50% { transform: rotate(-2deg) translateY(-4px); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .top .wrap { animation: rise .8s cubic-bezier(.2, .7, .2, 1) both; }
+  .hero h1 { animation: rise 1s cubic-bezier(.2, .7, .2, 1) .15s both; }
+  .hero .lead { animation: rise 1s cubic-bezier(.2, .7, .2, 1) .35s both; }
+  .hero .actions { animation: rise 1s cubic-bezier(.2, .7, .2, 1) .5s both; }
+  .hero .where { animation: rise 1s cubic-bezier(.2, .7, .2, 1) .65s both; }
+  .disc { transition: transform .5s cubic-bezier(.2, .7, .2, 1); }
+  .service:hover .disc { transform: rotate(-6deg) scale(1.04); }
+  .portrait::before { animation: slab 1.1s cubic-bezier(.7, 0, .2, 1) .15s both; }
+  .portrait .frame { animation: unveil 1.2s cubic-bezier(.7, 0, .2, 1) .35s both; }
+  .portrait .frame img { animation: settle 2s cubic-bezier(.2, .7, .2, 1) .35s both; }
+  .portrait .note { animation: drop .9s cubic-bezier(.3, 1.4, .5, 1) 1.2s both, breathe 6s ease-in-out 2.4s infinite; }
+  .portrait .note img { animation: write 1.2s cubic-bezier(.45, .05, .3, 1) 1.8s both; }
+
+  .btn svg { transition: transform .25s ease; }
+  .btn:hover svg { transform: translateX(4px); }
+  .chips li { transition: background-color .25s ease, color .25s ease, transform .25s ease; }
+  .chips li:hover { background: var(--mure); color: var(--on-dark); transform: translateY(-2px); }
+  .service h3 { transition: transform .35s cubic-bezier(.2, .7, .2, 1); }
+  .service:hover h3 { transform: translateX(8px); }
+  .who li strong { transition: color .3s ease; }
+  .who li:hover strong { color: var(--blush); }
+  .top nav a:not(.btn) { background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .3s ease; }
+  .top nav a:not(.btn):hover { text-decoration: none; background-size: 100% 1px; }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .band .label, .band h2, .role .body > p, .soins .intro > p, .bio p, .path .sign, .memoire blockquote, .memoire .meta, .contact .lead, .mailcard, .checklist {
+      animation: rise linear both; animation-timeline: view(); animation-range: entry 5% entry 75%;
+    }
+    .role .facts div, .who li, .service { animation: rise linear both; animation-timeline: view(); animation-range: entry 0% entry 60%; }
+    .role .facts div:nth-child(2), .who li:nth-child(2) { animation-range: entry 8% entry 68%; }
+    .role .facts div:nth-child(3), .who li:nth-child(3) { animation-range: entry 16% entry 76%; }
+    .role .facts div:nth-child(4), .who li:nth-child(4) { animation-range: entry 24% entry 84%; }
+    .who li:nth-child(5) { animation-range: entry 32% entry 92%; }
+    .who .head .hand, .service .margin, .path .sign .hand { animation: write linear both; animation-timeline: view(); animation-range: entry 30% cover 50%; }
+    .timeline { view-timeline: --path block; }
+    .timeline::before { transform-origin: top; animation: grow linear both; animation-timeline: --path; animation-range: entry 20% cover 65%; }
+    .timeline li { view-timeline: --step block; }
+    .timeline li > * { animation: rise linear both; animation-timeline: --step; animation-range: entry 10% entry 80%; }
+    .timeline li::after { animation: pop linear both; animation-timeline: --step; animation-range: entry 40% entry 90%; }
+  }
+}
+
+/* Icons draw themselves like her handwriting. JS adds .draw-js only when motion is allowed, then .on when each one comes into view. */
+.draw-js .draw .ico :not(.d) { stroke-dasharray: 1 2; stroke-dashoffset: 1.06;transition: stroke-dashoffset 1.1s cubic-bezier(.45, .05, .3, 1); }
+.draw-js .draw.on .ico :not(.d) { stroke-dashoffset: 0; }
+.draw-js .draw .ico .d { transform: scale(0); transform-box: fill-box; transform-origin: center; transition: transform .5s cubic-bezier(.3, 1.6, .5, 1); }
+.draw-js .draw.on .ico .d { transform: scale(1); }
+.draw-js .draw .txt { clip-path: inset(0 100% 0 0); transition: clip-path 1.1s cubic-bezier(.45, .05, .3, 1); }
+.draw-js .draw.on .txt { clip-path: inset(-.3em -1em -.3em 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .hero .bienvenue { animation: none; }
+  .btn { transition: none; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#accueil" aria-label="Goundo, accueil"><img src="img/logo-mure.png" alt="Goundo"></a>
+    <nav aria-label="Navigation principale">
+      <a href="#soins">Soins</a>
+      <a href="#parcours">Parcours</a>
+      <a href="#memoire">Mémoire</a>
+      <a class="btn btn-olive" href="#rendez-vous">Prendre rendez-vous</a>
+    </nav>
+  </div>
+</header>
+
+<main id="accueil">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <img class="hand bienvenue" src="img/bienvenue-olive.png" alt="Bienvenue">
+        <h1>Sage-femme libérale à Paris&nbsp;15<sup style="font-size:.45em">e</sup>, pour votre santé de <em>femme</em>, à tout âge.</h1>
+        <p class="lead">Je suis Goundo Sakho. Je vous accompagne pendant la grossesse et après la naissance, et pour votre suivi gynécologique : contraception, dépistage, infections, projet de bébé.</p>
+        <div class="actions">
+          <a class="btn btn-olive js-mail" href="#rendez-vous">
+            Demander un rendez-vous
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#soins">Voir les soins</a>
+        </div>
+      </div>
+      <figure class="portrait" style="margin:0">
+        <div class="frame"><img src="img/goundo.jpg" alt="Portrait de Goundo Sakho, sage-femme, souriante, lunettes et haut couleur cacao"></div>
+        <div class="note"><img class="hand" src="img/chaque-etape-mure.png" alt="À chaque étape"></div>
+      </figure>
+      <div class="where">
+        <div class="fact draw" data-delay="1">
+          <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4.5v4"/><path d="M22.3 8.5h3.4"/><path d="M22.6 8.5C22.3 21 19 33 10.5 44"/><path d="M25.4 8.5C25.7 21 29 33 37.5 44"/><path d="M20.9 21h6.2"/><path d="M17.2 31.5h13.6"/><path d="M21.2 21.6l6 9.3M26.8 21.6l-6 9.3"/><path class="o" d="M16.8 44c1.8-5.2 4.3-7.8 7.2-7.8s5.4 2.6 7.2 7.8"/><circle class="d" cx="24" cy="3.2" r="1.3"/></svg></span>
+          <span class="txt">Cabinet à Paris 15e</span>
+        </div>
+        <div class="fact draw" data-delay="1.35">
+          <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 11h24a4 4 0 0 1 4 4v21a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4V15a4 4 0 0 1 4-4z"/><path d="M8 19.5h32"/><path d="M16.5 7.5v7M31.5 7.5v7"/><path class="o" d="M18 29.5l4.2 4.2 8.3-8.7"/></svg></span>
+          <span class="txt">Consultations sur rendez-vous</span>
+        </div>
+        <div class="fact draw" data-delay="1.7">
+          <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 18l20-8 20 8-20 8z"/><path d="M12 21.3V31c0 2.8 5.4 5.5 12 5.5s12-2.7 12-5.5v-9.7"/><path class="o" d="M40 19.6V31"/><circle class="d" cx="40" cy="33" r="1.6"/></svg></span>
+          <span class="txt">Diplômée de l'Université Paris Cité</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="role band" aria-labelledby="role-title">
+    <div class="wrap">
+      <div>
+        <p class="label">Le métier</p>
+        <h2 id="role-title">Une sage-femme, ce n'est pas seulement l'accouchement.</h2>
+      </div>
+      <div class="body">
+        <p>La sage-femme est une profession médicale. En libéral, elle suit les femmes en bonne santé tout au long de leur vie, pas seulement pendant neuf mois.</p>
+        <p>Elle peut vous examiner, poser un diagnostic, prescrire des examens et des traitements, et vous orienter vers un médecin quand c'est nécessaire.</p>
+        <div class="facts">
+          <div><strong>Grossesse</strong>Du test positif au retour à la maison.</div>
+          <div><strong>Gynécologie</strong>Contraception, dépistage, infections, bilan annuel.</div>
+          <div><strong>Prescriptions</strong>Examens, contraception, traitements adaptés.</div>
+          <div><strong>Orientation</strong>Vers le bon spécialiste si votre situation le demande.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="who band" aria-labelledby="who-title">
+    <div class="wrap">
+      <div class="head">
+        <div>
+          <p class="label">Pour qui</p>
+          <h2 id="who-title">Vous pouvez venir me voir si…</h2>
+        </div>
+        <img class="hand" src="img/sans-tabou-blush.png" alt="On en parle sans tabou">
+      </div>
+      <ul>
+        <li><strong>Vous avez des questions sur votre contraception</strong><span>La choisir, la changer, la renouveler.</span></li>
+        <li><strong>Vous essayez d'avoir un bébé</strong><span>Une consultation avant la grossesse pour partir sereine.</span></li>
+        <li><strong>Vous êtes enceinte</strong><span>Un suivi régulier avec la même sage-femme.</span></li>
+        <li><strong>Vous venez d'accoucher</strong><span>Récupération, allaitement, moral, périnée.</span></li>
+        <li><strong>Vous voulez un bilan</strong><span>Un check-up gynécologique, à 20 ans comme à 50.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="soins band" id="soins" aria-labelledby="soins-title">
+    <div class="wrap">
+      <div class="intro">
+        <div>
+          <p class="label">Mes soins</p>
+          <h2 id="soins-title">Ce que je vous propose</h2>
+        </div>
+        <p>Chaque consultation commence par vos questions. On prend le temps, on explique, et vous décidez avec moi.</p>
+      </div>
+
+      <article class="service">
+        <div class="svc-head draw">
+          <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M21 4.3a4.2 4.2 0 1 0 0 8.4a4.2 4.2 0 1 0 0-8.4"/><path d="M18.6 12.5C16 16.5 15.6 21 16.6 25.5 17.4 29.5 16.4 34 15.8 38L16.4 45"/><path d="M22.8 12.4c.4 2.6 2.6 4 2.9 6.6.2 1.6-.9 2.6-1.4 3.6 6.5 1.5 9.5 6.3 8 11-1 3-4.3 4.6-8.4 4.6L23 45"/><path class="o" d="M18.4 17.5c-.4 5 1 9 4.6 11.5 1.7 1.1 3.7 1.4 5.5 1"/><circle class="d" cx="28.6" cy="30" r="1.3"/></svg></span>
+          <h3><span class="stage">Pendant la grossesse</span>Suivi de grossesse</h3>
+        </div>
+        <div class="desc">
+          <p>Consultations mensuelles, examens et échographies prescrits au bon moment, et une personne à qui poser toutes vos questions, du premier mois jusqu'à l'accouchement.</p>
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="svc-head draw">
+          <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M5 18h24c3.6 0 6.2-2.6 6.2-5.7S32.8 7 30.2 7c-2.6 0-4.4 1.9-4.4 4.3"/><path d="M5 26.5h32c3.2 0 5.6 2.5 5.6 5.4s-2.3 5.3-5 5.3c-2.6 0-4.4-1.9-4.4-4.2"/><path class="o" d="M9 35h14"/><circle class="d" cx="25.6" cy="35" r="1.3"/></svg></span>
+          <h3><span class="stage">Avant la naissance</span>Préparation à l'accouchement</h3>
+        </div>
+        <div class="desc">
+          <p>Comprendre le déroulement du travail, apprendre à respirer et à bouger, préparer le retour à la maison. Seule ou avec la personne qui vous accompagnera.</p>
+        </div>
+      </article>
+
+      <article class="service featured">
+        <div class="svc-head draw">
+          <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 44V23"/><path d="M24 23c-6 0-9.2-4.8-9.2-12.2 3.4 1 6.6 3.2 9.2 6.2 2.6-3 5.8-5.2 9.2-6.2C33.2 18.2 30 23 24 23z"/><path d="M24 17c-2.2-3.2-2.2-7.4 0-10.6 2.2 3.2 2.2 7.4 0 10.6"/><path class="o" d="M24 38c-5.2 0-9-3.2-10-8.4 5.2 0 9 3.2 10 8.4z"/><path class="o" d="M24 33.5c4-.4 7-3 8-7.2-4 0-7 2.6-8 7.2z"/></svg></span>
+          <h3><span class="stage">À tout âge</span>Suivi gynécologique</h3>
+        </div>
+        <div class="desc">
+          <p>Un espace pour parler de votre corps simplement, sans jugement et sans gêne.</p>
+          <ul class="chips" aria-label="Motifs de consultation gynécologique">
+            <li>Consultation IST</li>
+            <li>Infection vaginale</li>
+            <li>Infection urinaire</li>
+            <li>Renouvellement de contraception</li>
+            <li>Consultation pré-conceptionnelle</li>
+            <li>Check-up annuel</li>
+          </ul>
+          <img class="hand margin" src="img/prends-soin-olive.png" alt="Prends soin de ta santé">
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="svc-head draw">
+          <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M27 8.5A16.5 16.5 0 1 0 40 34a13.5 13.5 0 0 1-13-25.5z"/><path class="o" d="M37 9v7M33.5 12.5h7"/><circle class="d" cx="42" cy="21" r="1.3"/></svg></span>
+          <h3><span class="stage">Après la naissance</span>Post-partum</h3>
+        </div>
+        <div class="desc">
+          <p>Cicatrisation, saignements, allaitement, sommeil, moral. Les semaines qui suivent la naissance comptent autant que la grossesse, et vous n'avez pas à les traverser seule.</p>
+          <img class="hand margin" src="img/je-viens-mure.png" alt="Je viens à vous">
+        </div>
+      </article>
+
+      <article class="service">
+        <div class="svc-head draw">
+          <span class="disc"><svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 11c-4.2 5-4.2 14 0 20.5 4.2-6.5 4.2-15.5 0-20.5z"/><path d="M22 31.5c-6-1-10.6-5.8-11.6-12.8 5.4 0 10 3.4 12.4 9"/><path d="M26 31.5c6-1 10.6-5.8 11.6-12.8-5.4 0-10 3.4-12.4 9"/><path d="M20.5 33c-6 1.2-11.8-.6-15-4.6 4.6-2 9.4-1.6 13.6 1.4"/><path d="M27.5 33c6 1.2 11.8-.6 15-4.6-4.6-2-9.4-1.6-13.6 1.4"/><path class="o" d="M12 38.5h24M17 42.5h14"/></svg></span>
+          <h3><span class="stage">Après la naissance</span>Rééducation du périnée</h3>
+        </div>
+        <div class="desc">
+          <p>Des séances individuelles pour retrouver un périnée tonique et confortable : fuites, douleurs, reprise du sport ou de la vie intime.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="path band" id="parcours" aria-labelledby="path-title">
+    <div class="wrap">
+      <div>
+        <p class="label">Qui suis-je</p>
+        <h2 id="path-title">Goundo Sakho, sage-femme</h2>
+        <div class="bio">
+          <p>Je me suis formée à Paris, d'abord en médecine, puis en maïeutique à l'Université Paris Cité.</p>
+          <p>J'ai travaillé en soins à domicile, puis en PMA à l'hôpital Antoine-Béclère, auprès de couples engagés dans un parcours de diagnostic préimplantatoire. Ces expériences m'ont appris une chose : on soigne mieux quand on prend le temps d'écouter.</p>
+          <p>Depuis juillet 2026, je reçois en libéral à Paris 15e.</p>
+        </div>
+        <div class="sign">
+          <img class="hand" src="img/a-tres-vite-mure.png" alt="À très vite">
+          <img class="logo" src="img/logo-mure.png" alt="Goundo">
+        </div>
+      </div>
+      <div class="tracks">
+        <div class="track">
+          <p class="label" id="track-exercice">Expérience</p>
+          <ol class="timeline" aria-labelledby="track-exercice">
+            <li class="now"><time>Depuis 2026</time><div><strong>Installation en libéral</strong><span>Sage-femme libérale, Paris 15e</span></div></li>
+            <li><time>2025&#8239;–&#8239;2026</time><div><strong>Sage-femme référente du diagnostic préimplantatoire, PMA</strong><span>Hôpital Antoine-Béclère, Clamart</span></div></li>
+            <li><time>2025</time><div><strong>Sage-femme en soins à domicile</strong><span>Fondation Santé Service, Levallois-Perret</span></div></li>
+          </ol>
+        </div>
+        <div class="track">
+          <p class="label" id="track-formation">Formation</p>
+          <ol class="timeline" aria-labelledby="track-formation">
+            <li><time>2021&#8239;–&#8239;2026</time><div><strong>Master en sciences maïeutiques</strong><span>Université Paris Cité</span></div></li>
+            <li><time>2019&#8239;–&#8239;2021</time><div><strong>Licence de médecine (PACES)</strong><span>Université Sorbonne Paris Nord, classée 4e sur 206</span></div></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="memoire band" id="memoire" aria-labelledby="memoire-title">
+    <div class="wrap">
+      <p class="label" id="memoire-title">Mon mémoire de fin d'études</p>
+      <blockquote>Le groupe de parole dans la prise en charge des femmes concernées par les mutilations sexuelles féminines</blockquote>
+      <div class="meta">
+        <p>J'ai consacré mon mémoire à ce que la parole partagée apporte aux femmes ayant subi une excision. Si vous êtes concernée, vous pouvez m'en parler en consultation. Je vous écouterai, et je vous orienterai si vous le souhaitez.</p>
+        <div class="side">
+          <span>Université Paris Cité, 2026. Publication prochaine sur HAL-Dumas.</span>
+          <a class="btn btn-ghost" href="#rendez-vous">Recevoir le mémoire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact band" id="rendez-vous" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div>
+        <p class="label">Rendez-vous</p>
+        <h2 id="contact-title">Écrivez-moi pour prendre rendez-vous.</h2>
+        <p class="lead">Pour l'instant, les rendez-vous se prennent par e-mail. Je vous réponds avec un créneau au cabinet.</p>
+        <div class="mailcard">
+          <div class="mailrow">
+            <span class="mail" id="mail-text">contact@exemple.fr</span>
+            <button class="copy" id="copy-btn" type="button">Copier l'adresse</button>
+          </div>
+          <p class="subject">Objet du message : <b>Prise de rendez-vous</b></p>
+          <a class="btn btn-light js-mail" href="#rendez-vous">Écrire un e-mail
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="checklist">
+        <h3>Dans votre message</h3>
+        <ul>
+          <li>Votre nom et prénom</li>
+          <li>Le motif de la consultation</li>
+          <li>Vos disponibilités dans la semaine</li>
+          <li>Un numéro de téléphone pour vous joindre</li>
+        </ul>
+        <p class="urgent"><span class="num" aria-hidden="true">15</span><span><b>En cas d'urgence</b>, n'attendez pas ma réponse : appelez le 15 ou rendez-vous aux urgences de la maternité la plus proche.</span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img class="logo" src="img/logo-blush.png" alt="Goundo">
+    <span>Goundo Sakho · Sage-femme libérale · Paris 15e</span>
+    <nav aria-label="Liens">
+      <a href="https://www.linkedin.com/in/goundo-sakho-4746551a8/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#rendez-vous">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var EMAIL = "contact@exemple.fr";
+  var SUBJECT = "Prise de rendez-vous";
+  var href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(SUBJECT);
+  document.getElementById("mail-text").textContent = EMAIL;
+  document.querySelectorAll(".js-mail").forEach(function (a) { a.setAttribute("href", href); });
+  var btn = document.getElementById("copy-btn");
+  btn.addEventListener("click", function () {
+    var done = function () { btn.textContent = "Adresse copiée"; setTimeout(function () { btn.textContent = "Copier l'adresse"; }, 2000); };
+    var select = function () { var r = document.createRange(); r.selectNodeContents(document.getElementById("mail-text")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Adresse sélectionnée"; };
+    try { navigator.clipboard.writeText(EMAIL).then(done, select); } catch (e) { select(); }
+  });
+})();
+
+/* Line icons draw in, stroke after stroke, when they come into view. */
+(function () {
+  var items = document.querySelectorAll(".draw");
+  var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (still || !("IntersectionObserver" in window)) return;
+  var start = Date.now();
+  // The hero facts wait for "Bienvenue" only when they are on screen at load; reached later by scrolling, they draw at once (keeping their stagger).
+  function time(item, late) {
+    var base = parseFloat(item.getAttribute("data-delay") || "0");
+    if (late) base = Math.max(0, base - 1);
+    var strokes = item.querySelectorAll(".ico :not(.d)");
+    strokes.forEach(function (s, i) { s.style.transitionDelay = (base + i * 0.14) + "s"; });
+    item.querySelectorAll(".ico .d").forEach(function (d) { d.style.transitionDelay = (base + strokes.length * 0.14 + 0.5) + "s"; });
+    var txt = item.querySelector(".txt");
+    if (txt) txt.style.transitionDelay = (base + 0.45) + "s";
+  }
+  items.forEach(function (item) {
+    item.querySelectorAll(".ico :not(.d)").forEach(function (s) { s.setAttribute("pathLength", "1"); });
+  });
+  document.documentElement.classList.add("draw-js");
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      time(e.target, Date.now() - start > 1500);
+      e.target.classList.add("on");
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px" });
+  items.forEach(function (item) { io.observe(item); });
+})();
+</script>
