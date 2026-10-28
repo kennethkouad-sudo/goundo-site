@@ -45,7 +45,7 @@ Proportions are roughly 60% light (mauve poudré or papier), 30% mûre and 10% o
 ### Type
 
 - **Gloock** for headings: one weight, never bold or italic.
-- **Instrument Sans** for body text, weights 400 to 600, self-hosted as the variable font (one latin `.woff2` file covering 400–600, SIL OFL). No italic is used.
+- **Instrument Sans** for body text, weights 400 to 600, self-hosted as the variable font (one latin `.woff2` file covering 400–700, SIL OFL). No italic is used.
 - Labels are small caps in olive, 12.5px, letter-spacing 0.14em, uppercase. On mauve poudré they use olive-texte; on mûre bands they use nacre-douce (olive is unreadable on mûre).
 - If Gloock ever has to be replaced (Canva), use **DM Serif Display**.
 - Ordinals such as "15e" use a raised "e" everywhere in visible text (the page title and meta description stay plain, since they cannot be formatted).
@@ -127,7 +127,7 @@ Hand-drawn line icons sit next to the hero facts and next to each service. They 
 8. **Rendez-vous / Contact** (mûre):
    - booking by email, with the subject line "Prise de rendez-vous";
    - the email shown as text with a copy button;
-   - the practice address, "62 rue des Entrepreneurs, 75015 Paris", presented as her cabinet, not as the only place she works (she also works elsewhere);
+   - the practice address, shown as « Cabinet : 62 rue des Entrepreneurs, 75015 Paris » (wording approved 28 October 2026), so it reads as her cabinet, not as the only place she works (she also works elsewhere);
    - a "Dans votre message" checklist (items: name; "Le type de consultation (grossesse, gynécologie, post-partum…)"; availability; a phone number to call back), followed by the plain line "Inutile de détailler votre situation par e-mail, on en parlera en consultation." It is styled as a page from her notebook taped onto the mûre band: papier card tilted 1.5°, a strip of mauve-poudré tape, a mauve margin rule, ruled lines and empty olive tick boxes;
    - an urgent-care line: "appelez le 15", inside the note on a mauve-poudré strip, with "15" in a mûre circle.
 9. **Footer**: logo, name, LinkedIn (the only social link she wants) and a "Mentions légales" link.
@@ -186,6 +186,7 @@ The full build instructions are in `CLAUDE.md`. Claude Code starts with a cohere
   3. Add the mentions légales.
   4. Connect a domain.
 - Keep the single-file simplicity unless a blog is added later for SEO.
+- Repository layout (decided 28 October 2026): the published website lives in `site/` (`index.html`, `img/`, `fonts/`, later the mentions légales and favicon files). Netlify publishes `site/` only. Everything else (brief, audit, `brand/`, `CLAUDE.md`) stays at the root and is never published.
 
 ## 10. Decisions from the coherence audit (28 October 2026)
 
@@ -202,7 +203,7 @@ The owner answered the 22 questions in `AUDIT.md`. Summary, by question number:
 9. Variable Instrument Sans, self-hosted.
 10. Olive text on mauve poudré uses `#5A613D` (olive-texte); everywhere else olive stays `#5F6640`.
 11. Separate `mentions-legales.html`, linked from the footer of both pages.
-12. Address in the contact section and in the mentions légales, as her cabinet. Phone on neither page (LCEN point tracked in `TODO-LEGAL.md`).
+12. Address in the contact section (« Cabinet : 62 rue des Entrepreneurs, 75015 Paris ») and in the mentions légales, as her cabinet. Phone on neither page (LCEN point tracked in `TODO-LEGAL.md`).
 13. Host: Netlify.
 14. Domain: goundosakho.fr, used in the canonical link, `og:url`, `sitemap.xml` and `robots.txt`. DNS connection in Phase 7.
 15. No better photo yet: best crop of the current one.

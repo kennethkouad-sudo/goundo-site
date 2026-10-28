@@ -43,6 +43,8 @@ docs/BRIEF-site-goundo.md   the project brief (move it here from the root if it 
 CLAUDE.md                   this file
 ```
 
+**Since 28 October 2026 (owner decision), everything that is published lives in `site/`:** `site/index.html`, `site/img/`, `site/fonts/`, and later the mentions légales, favicon, sharing image, `robots.txt` and `sitemap.xml`. Everything else (docs, audit, `brand/`, this file) stays at the repository root and is never published. Netlify publishes `site/` only (`netlify.toml`). Paths inside the site stay relative (`img/…`, `fonts/…`).
+
 About `index.html`: it was written for a preview service that adds the document skeleton itself. So the file has **no** `<!doctype html>`, `<html>`, `<head>` or `<body>` tags, and it contains a meta tag that only that preview service uses: `<meta name="claude:viewport-fit-sides">`. Phase 2 turns it into a complete, standalone document.
 
 ---
@@ -126,14 +128,17 @@ Target structure (adjust it to the owner's answers to the audit):
 
 ```
 /
-├── index.html
-├── mentions-legales.html      (Phase 4, if approved)
-├── img/                       only the images the site uses (+ .webp versions)
-├── fonts/                     only the font files the site uses
-├── favicon.svg, favicon.ico, apple-touch-icon.png
-├── og-image.jpg               1200×630
-├── robots.txt, sitemap.xml
-├── brand/                     unused color variants of the logo and handwriting (not linked from the site)
+├── site/                      the published website, and nothing else
+│   ├── index.html
+│   ├── mentions-legales.html  (Phase 4)
+│   ├── img/                   only the images the site uses (+ .webp versions)
+│   ├── fonts/                 only the font files the site uses, with their licenses
+│   ├── favicon.svg, favicon.ico, apple-touch-icon.png
+│   ├── og-image.jpg           1200×630
+│   └── robots.txt, sitemap.xml
+├── netlify.toml               tells Netlify to publish site/ only
+├── brand/                     unused color variants of the logo, handwriting and fonts (not published)
+├── TODO-LEGAL.md
 ├── docs/BRIEF-site-goundo.md
 ├── AUDIT.md
 ├── CLAUDE.md
@@ -143,7 +148,7 @@ Target structure (adjust it to the owner's answers to the audit):
 - Run `git init`. First commit: the files exactly as delivered, so every later change can be reviewed as a diff.
 - Make one commit per phase, with a clear message.
 - Add a `.gitignore` for OS clutter and `node_modules/`, in case you use tooling such as image conversion or HTML validation. **Tooling never becomes part of the site.**
-- Local preview: `python3 -m http.server`. Nothing else is needed.
+- Local preview: `python3 -m http.server -d site`. Nothing else is needed.
 
 ## 5. Phase 2: turn `index.html` into a complete document
 
@@ -201,7 +206,7 @@ Contents (in French). Use placeholders for anything you have not been given:
 
 ## 10. Phase 7: deployment
 
-- Use the host the owner chose during the audit. The site has no build, so deployment means publishing the repository root (or a `public/` folder, if you created one).
+- Use the host the owner chose during the audit. The site has no build, so deployment means publishing the `site/` folder only (set in `netlify.toml`).
 - Connect the domain, and check that HTTPS and the redirect from `www` to the bare domain (or the other way round) work.
 - Put the final hosting details into the mentions légales.
 
