@@ -57,7 +57,7 @@ The word "Goundo" in a thin line with droplet terminals. It comes in mûre, mauv
 
 ### Her handwriting: the signature of the brand
 
-These are real phrases written by Goundo, cut out as transparent PNGs in `img/`:
+These are real phrases written by Goundo, cut out as transparent PNGs. The versions the site uses are in `img/`; the other colors (and the two newer phrases) are kept in `brand/`, which is not part of the site:
 
 | File | Phrase | Where it is used |
 | --- | --- | --- |

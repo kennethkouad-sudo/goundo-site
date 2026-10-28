@@ -1,0 +1,9 @@
+# OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Tooling (never part of the site)
+node_modules/
+*.log
+.netlify/
