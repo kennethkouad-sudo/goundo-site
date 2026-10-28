@@ -35,7 +35,10 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
-img { max-width: 100%; display: block; }
+/* <picture> only picks the file; the <img> inside keeps all the layout. */
+picture { display: contents; }
+picture source { display: none; } /* otherwise it counts as an empty grid or flex item and adds a gap */
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
 p { margin: 0; }
@@ -298,7 +301,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="#accueil" aria-label="Goundo, accueil"><img src="img/logo-mure.png" alt="Goundo"></a>
+    <a class="logo" href="#accueil" aria-label="Goundo, accueil"><picture><source srcset="img/logo-mure.webp" type="image/webp"><img src="img/logo-mure.png" alt="Goundo" width="734" height="146"></picture></a>
     <nav aria-label="Navigation principale">
       <a href="#soins">Soins</a>
       <a href="#parcours">Parcours</a>
@@ -312,7 +315,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
   <section class="hero">
     <div class="wrap">
       <div class="hero-text">
-        <img class="hand bienvenue" src="img/bienvenue-olive.png" alt="Bienvenue">
+        <picture><source srcset="img/bienvenue-olive.webp" type="image/webp"><img class="hand bienvenue" src="img/bienvenue-olive.png" alt="Bienvenue" width="476" height="86"></picture>
         <h1>Sage-femme libérale à Paris&nbsp;15<sup>e</sup>, pour votre santé de <em>femme</em>, à tout âge.</h1>
         <p class="lead">Je suis Goundo Sakho. Je vous accompagne pendant la grossesse et après la naissance, et pour votre suivi gynécologique : contraception, dépistage, infections, projet de bébé.</p>
         <div class="actions">
@@ -324,8 +327,8 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         </div>
       </div>
       <figure class="portrait">
-        <div class="frame"><img src="img/goundo.jpg" alt="Portrait de Goundo Sakho, sage-femme, souriante, lunettes et haut couleur cacao"></div>
-        <div class="note"><img class="hand" src="img/chaque-etape-mure.png" alt="À chaque étape"></div>
+        <div class="frame"><picture><source srcset="img/goundo-400.webp 400w, img/goundo-640.webp 640w" sizes="(max-width: 860px) calc(100vw - 64px), 416px" type="image/webp"><img src="img/goundo-640.jpg" alt="Portrait de Goundo Sakho, sage-femme, souriante, lunettes et haut couleur cacao" width="640" height="800" fetchpriority="high"></picture></div>
+        <div class="note"><picture><source srcset="img/chaque-etape-mure.webp" type="image/webp"><img class="hand" src="img/chaque-etape-mure.png" alt="À chaque étape" width="672" height="110"></picture></div>
       </figure>
       <div class="where">
         <div class="fact draw" data-delay="1">
@@ -370,7 +373,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
           <p class="label">Pour qui</p>
           <h2 id="who-title">Vous pouvez venir me voir si…</h2>
         </div>
-        <img class="hand" src="img/sans-tabou-blush.png" alt="On en parle sans tabou">
+        <picture><source srcset="img/sans-tabou-blush.webp" type="image/webp"><img class="hand" src="img/sans-tabou-blush.png" alt="On en parle sans tabou" width="1111" height="120" loading="lazy" decoding="async"></picture>
       </div>
       <ul>
         <li><strong>Vous avez des questions sur votre contraception</strong><span>La choisir, la changer, la renouveler.</span></li>
@@ -428,7 +431,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
             <li>Consultation pré-conceptionnelle</li>
             <li>Check-up annuel</li>
           </ul>
-          <img class="hand margin" src="img/prends-soin-olive.png" alt="Prends soin de ta santé">
+          <picture><source srcset="img/prends-soin-olive.webp" type="image/webp"><img class="hand margin" src="img/prends-soin-olive.png" alt="Prends soin de ta santé" width="1063" height="116" loading="lazy" decoding="async"></picture>
         </div>
       </article>
 
@@ -439,7 +442,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         </div>
         <div class="desc">
           <p>Cicatrisation, saignements, allaitement, sommeil, moral. Les semaines qui suivent la naissance comptent autant que la grossesse, et vous n'avez pas à les traverser seule.</p>
-          <img class="hand margin" src="img/je-viens-mure.png" alt="Je viens à vous">
+          <picture><source srcset="img/je-viens-mure.webp" type="image/webp"><img class="hand margin" src="img/je-viens-mure.png" alt="Je viens à vous" width="697" height="135" loading="lazy" decoding="async"></picture>
         </div>
       </article>
 
@@ -466,8 +469,8 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
           <p>Depuis juillet 2026, je reçois en libéral à Paris 15<sup>e</sup>.</p>
         </div>
         <div class="sign">
-          <img class="hand" src="img/a-tres-vite-mure.png" alt="À très vite">
-          <img class="logo" src="img/logo-mure.png" alt="Goundo">
+          <picture><source srcset="img/a-tres-vite-mure.webp" type="image/webp"><img class="hand" src="img/a-tres-vite-mure.png" alt="À très vite" width="447" height="93" loading="lazy" decoding="async"></picture>
+          <picture><source srcset="img/logo-mure.webp" type="image/webp"><img class="logo" src="img/logo-mure.png" alt="Goundo" width="734" height="146" loading="lazy" decoding="async"></picture>
         </div>
       </div>
       <div class="tracks">
@@ -539,7 +542,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 
 <footer>
   <div class="wrap">
-    <img class="logo" src="img/logo-blush.png" alt="Goundo">
+    <picture><source srcset="img/logo-blush.webp" type="image/webp"><img class="logo" src="img/logo-blush.png" alt="Goundo" width="734" height="146" loading="lazy" decoding="async"></picture>
     <span>Goundo Sakho · Sage-femme libérale · Paris 15<sup>e</sup></span>
     <nav aria-label="Liens">
       <a href="https://www.linkedin.com/in/goundo-sakho-4746551a8/" target="_blank" rel="noopener">LinkedIn</a>

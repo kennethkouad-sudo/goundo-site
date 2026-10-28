@@ -31,7 +31,10 @@
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 1.0625rem; line-height: 1.65; -webkit-font-smoothing: antialiased; }
-img { max-width: 100%; display: block; }
+/* <picture> only picks the file; the <img> inside keeps all the layout. */
+picture { display: contents; }
+picture source { display: none; } /* otherwise it counts as an empty grid or flex item and adds a gap */
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
 p { margin: 0; }
@@ -93,7 +96,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="Goundo, accueil"><img src="img/logo-mure.png" alt="Goundo"></a>
+    <a class="logo" href="index.html" aria-label="Goundo, accueil"><picture><source srcset="img/logo-mure.webp" type="image/webp"><img src="img/logo-mure.png" alt="Goundo" width="734" height="146"></picture></a>
     <nav aria-label="Navigation principale">
       <a href="index.html#soins">Soins</a>
       <a href="index.html#parcours">Parcours</a>
@@ -161,7 +164,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 
 <footer>
   <div class="wrap">
-    <img class="logo" src="img/logo-blush.png" alt="Goundo">
+    <picture><source srcset="img/logo-blush.webp" type="image/webp"><img class="logo" src="img/logo-blush.png" alt="Goundo" width="734" height="146" loading="lazy" decoding="async"></picture>
     <span>Goundo Sakho · Sage-femme libérale · Paris 15<sup>e</sup></span>
     <nav aria-label="Liens">
       <a href="https://www.linkedin.com/in/goundo-sakho-4746551a8/" target="_blank" rel="noopener">LinkedIn</a>

@@ -172,6 +172,7 @@ Hand-drawn line icons sit next to the hero facts and next to each service. They 
 - [ ] Favicon, social share image (OG), meta description check, image compression (WebP), and self-hosted fonts. *Meta description decided ("préparation à la naissance"); fonts: variable Instrument Sans. Work scheduled in the build phases.*
 - [ ] Re-export "Prends soin de ta santé": the accent on "santé" is cut at the top of the image (confirmed 28 October 2026). The current image stays until then.
 - [ ] A higher-resolution portrait, if one becomes available. Until then the site uses the best 4:5 crop of the current 800×800 photo (640×800).
+- [x] Images (Phase 5, 28 October 2026): every image has a WebP version served through `<picture>`, with the original as fallback and unchanged alt texts. Handwriting: lossless WebP at full size (smaller and sharper than a resized copy). Logos: lossless WebP at 2× their displayed width. Portrait: 4:5 crop of the 800×800 photo matching the approved framing, 640×800 and 400×500 WebP plus a 640×800 JPEG fallback; the original photo is kept in `brand/`. Images below the hero load lazily. First load is now about 140 KB on a phone and 180 KB on a desktop, fonts included.
 - [ ] Legal review of the mentions légales and the privacy note (`TODO-LEGAL.md`), including the 3-month retention period for appointment e-mails, to be confirmed by Goundo.
 
 ## 9. Then Claude Code
