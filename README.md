@@ -7,5 +7,5 @@ One-page static site for Goundo Sakho, sage-femme libérale (Paris 15e). Plain H
 - **Site files (all in `site/`):** `index.html`, `mentions-legales.html`, `img/`, `fonts/`, favicons, `robots.txt`, `sitemap.xml`.
 - **Not part of the site (never published):** everything outside `site/`: `brand/` (unused colour variants and font files), `docs/`, `AUDIT.md`, `TODO-LEGAL.md`, `CLAUDE.md`.
 - **Rules:** read `docs/BRIEF-site-goundo.md` (brand, content, decisions) and `CLAUDE.md` (build rules) before changing anything.
-- **When Doctolib arrives:** in `site/index.html`, set `BOOKING_URL` in the script, and put the same link in the `href` of every link with the class `js-book` (header and hero buttons in `index.html`, header button in `mentions-legales.html`). "Écrire un e-mail" stays an e-mail link.
+- **When Doctolib goes live:** run `git apply docs/doctolib-switch.patch` (after checking the link inside it; Goundo's listing currently says Saint-Ouen). It switches every booking button to Doctolib in a new tab, sets `BOOKING_URL`, and applies the planned contact-section wording (brief, section 8).
 - **Before each deploy:** search `site/` for `À COMPLÉTER`; publish only when nothing is left.

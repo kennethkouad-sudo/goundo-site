@@ -7,8 +7,8 @@ Prepared 28 October 2026 from the audit (`AUDIT.md`, findings 16–18 and 29–3
 
 The page is `site/mentions-legales.html` (Phase 4, 28 October 2026). Each item below is a visible `[À COMPLÉTER : …]` on it, except SIRET and credits, which are left out until decided.
 
-- [ ] **RPPS number.** Shown as `[À COMPLÉTER : numéro RPPS]`.
-- [ ] **Ordre des sages-femmes:** the departmental council she is registered with. Shown as `[À COMPLÉTER]`.
+- [x] **RPPS number.** 10112305296, from Goundo; on the page since 3 November 2026.
+- [x] **Ordre des sages-femmes:** conseil départemental de Paris de l'Ordre des sages-femmes, from Goundo; on the page since 3 November 2026.
 - [x] **Netlify's legal details.** On the page since 28 October 2026, from Netlify's terms of use (updated 14 October 2026), as given by the owner: Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, États-Unis; contact support@netlify.com. Netlify publishes no phone number (see point 8).
 - [ ] **SIRET number:** not clearly required by the LCEN for a liberal profession that is not on the trade register, but often shown. Does Goundo want it there?
 - [ ] **Credits:** does the portrait photographer need to be credited?

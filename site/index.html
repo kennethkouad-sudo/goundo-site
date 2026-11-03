@@ -120,7 +120,7 @@ h1 sup { font-size: .45em; line-height: inherit; }
 .role .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; margin-top: 1rem; border-top: 1px solid var(--line); }
 .role .facts div { padding: 1.1rem 1.2rem 1.1rem 0; border-bottom: 1px solid var(--line); font-size: .95rem; color: var(--ink-soft); }
 .role .facts div:nth-child(odd) { padding-right: 1.6rem; }
-.role .facts strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.2rem; color: var(--mure); margin-bottom: .2rem; }
+.role .facts strong { display: block; font-family: var(--display); font-weight: 400; font-size: 1.4rem; color: var(--mure); }
 
 /* For whom */
 .who { background: var(--mure); color: var(--on-dark); }
@@ -229,8 +229,6 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 }
 @media (max-width: 520px) {
   .top .logo img { width: 7.5rem; }
-  .role .facts { grid-template-columns: minmax(0, 1fr); }
-  .role .facts div:nth-child(odd) { padding-right: 0; }
   .tracks { --tcol: 5.3rem; }
   .timeline li { gap: 0 1.2rem; }
   .timeline .when { font-size: .78rem; }
@@ -289,6 +287,8 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
     .role .facts div:nth-child(4), .who li:nth-child(4) { animation-range: entry 24% entry 84%; }
     .who li:nth-child(5) { animation-range: entry 32% entry 92%; }
     .who .head .hand, .service .margin, .path .sign .hand { animation: write linear both; animation-timeline: view(); animation-range: entry 30% cover 50%; }
+    /* The signature is often the last thing on screen while reading the bio: it finishes writing as soon as it is fully in view, so it never rests half-written. */
+    .path .sign .hand { animation-range: entry 0% entry 100%; }
     .timeline { view-timeline: --path block; }
     .timeline::before { transform-origin: top; animation: grow linear both; animation-timeline: --path; animation-range: entry 20% cover 65%; }
     .timeline li { view-timeline: --step block; }
@@ -332,7 +332,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
       <div class="hero-text">
         <picture><source srcset="img/bienvenue-olive.webp" type="image/webp"><img class="hand bienvenue" src="img/bienvenue-olive.png" alt="Bienvenue" width="476" height="86"></picture>
         <h1>Sage-femme libérale à Paris&nbsp;15<sup>e</sup>, pour votre santé de <em>femme</em>, à tout âge.</h1>
-        <p class="lead">Je suis Goundo Sakho. Je vous accompagne pendant la grossesse et après la naissance, et pour votre suivi gynécologique : contraception, dépistage, infections, projet de bébé.</p>
+        <p class="lead">Je m'appelle Goundo, je suis sage-femme. Je vous accompagne à chaque étape de votre vie de femme. De l'adolescence à la ménopause.</p>
         <div class="actions">
           <a class="btn btn-olive js-mail js-book" href="mailto:pro.goundo@gmail.com?subject=Prise%20de%20rendez-vous">
             Demander un rendez-vous
@@ -369,13 +369,13 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         <h2 id="role-title">Une sage-femme, ce n'est pas seulement l'accouchement.</h2>
       </div>
       <div class="body">
-        <p>La sage-femme est une profession médicale. En libéral, elle suit les femmes en bonne santé tout au long de leur vie, pas seulement pendant neuf mois.</p>
-        <p>Elle peut vous examiner, poser un diagnostic, prescrire des examens et des traitements, et vous orienter vers un médecin quand c'est nécessaire.</p>
+        <p>On pense souvent qu'une sage-femme, c'est seulement pour l'accouchement. En réalité, c'est une profession médicale qui suit les femmes toute leur vie.</p>
+        <p>Je peux vous examiner, renouveler votre contraception, faire un dépistage, traiter une infection ou suivre votre grossesse. Et si votre situation le demande, je vous oriente vers le bon spécialiste.</p>
         <div class="facts">
-          <div><strong>Grossesse</strong>Du test positif au retour à la maison.</div>
-          <div><strong>Gynécologie</strong>Contraception, dépistage, infections, bilan annuel.</div>
-          <div><strong>Prescriptions</strong>Examens, contraception, traitements adaptés.</div>
-          <div><strong>Orientation</strong>Vers le bon spécialiste si votre situation le demande.</div>
+          <div><strong>Grossesse</strong></div>
+          <div><strong>Gynécologie</strong></div>
+          <div><strong>Post-partum</strong></div>
+          <div><strong>Orientation</strong></div>
         </div>
       </div>
     </div>
@@ -395,7 +395,7 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         <li><strong>Vous essayez d'avoir un bébé</strong><span>Une consultation avant la grossesse pour partir sereine.</span></li>
         <li><strong>Vous êtes enceinte</strong><span>Un suivi régulier avec la même sage-femme.</span></li>
         <li><strong>Vous venez d'accoucher</strong><span>Récupération, allaitement, moral, périnée.</span></li>
-        <li><strong>Vous voulez un bilan</strong><span>Un check-up gynécologique, à 20 ans comme à 50.</span></li>
+        <li><strong>Vous voulez un check-up</strong><span>Un bilan gynécologique, à 16&nbsp;ans comme à 50&nbsp;ans.</span></li>
       </ul>
     </div>
   </section>
@@ -479,9 +479,8 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         <p class="label">Qui suis-je</p>
         <h2 id="path-title">Goundo Sakho, sage-femme</h2>
         <div class="bio">
-          <p>Je me suis formée à Paris, d'abord en médecine, puis en maïeutique à l'Université Paris Cité.</p>
-          <p>J'ai travaillé en soins à domicile, puis en PMA à l'hôpital Antoine-Béclère, auprès de couples engagés dans un parcours de diagnostic préimplantatoire. Ces expériences m'ont appris une chose : on soigne mieux quand on prend le temps d'écouter.</p>
-          <p>Depuis juillet 2026, je reçois en libéral à Paris 15<sup>e</sup>.</p>
+          <p>J'ai commencé par la médecine, puis j'ai choisi la maïeutique : un métier médical, au plus près des femmes, à tous les âges de leur vie.</p>
+          <p>J'ai d'abord travaillé en soins à domicile, puis à l'hôpital Antoine-Béclère, comme sage-femme référente du diagnostic préimplantatoire, auprès de couples en parcours de PMA. Mon mémoire porte sur les groupes de parole pour les femmes concernées par les mutilations sexuelles féminines. Depuis juillet 2026, je vous reçois en ville.</p>
         </div>
         <div class="sign">
           <picture><source srcset="img/a-tres-vite-mure.webp" type="image/webp"><img class="hand" src="img/a-tres-vite-mure.png" alt="À très vite" width="447" height="93" loading="lazy" decoding="async"></picture>
