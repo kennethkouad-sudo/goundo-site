@@ -108,10 +108,10 @@ A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre l
 2. **Hero** (mauve poudré):
    - handwritten "Bienvenue";
    - H1 "Sage-femme libérale à Paris 15e, pour votre santé de *femme*, à tout âge.";
-   - a lead paragraph and two buttons;
+   - a lead paragraph (since 3 November 2026: « Je m'appelle Goundo, je suis sage-femme. Je vous accompagne à chaque étape de votre vie de femme. De l'adolescence à la ménopause. ») and two buttons;
    - a 4:5 portrait on an offset mauve slab, with the "À chaque étape" note pinned like paper;
    - below both columns, a full-width row of three facts, each with its line icon before the text: Eiffel Tower + "Cabinet à Paris 15e", calendar + "Consultations sur rendez-vous", graduation cap + "Diplômée de l'Université Paris Cité".
-3. **Le métier** (papier): what a *sage-femme libérale* actually does, plus four facts (Grossesse, Gynécologie, Prescriptions, Orientation).
+3. **Le métier** (papier): what a *sage-femme libérale* actually does, in two paragraphs in her voice (« On pense souvent qu'une sage-femme… » and « Je peux vous examiner… »), plus four facts shown as titles only, two per row on every screen size: Grossesse, Gynécologie, Post-partum, Orientation (since 3 November 2026; Post-partum replaced Prescriptions).
 4. **Pour qui** (mûre): "Vous pouvez venir me voir si…" with five situations, and the "On en parle sans tabou" handwriting.
 5. **Mes soins** (papier): five services as editorial rows, not cards. Each title has its line icon in a round badge to its left.
    - Suivi de grossesse.
@@ -119,7 +119,7 @@ A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre l
    - Suivi gynécologique: highlighted row, with chips for Consultation IST, Infection vaginale, Infection urinaire, Renouvellement de contraception, Consultation pré-conceptionnelle, Check-up annuel.
    - Post-partum.
    - Rééducation du périnée.
-6. **Parcours / Qui suis-je** (mauve poudré): a short bio, signed with "À très vite" and the logo, and the timeline split into two tracks, each from most recent to oldest, with full years everywhere:
+6. **Parcours / Qui suis-je** (mauve poudré): a short bio in two paragraphs (rewritten by Goundo, 3 November 2026), signed with "À très vite" and the logo, and the timeline split into two tracks, each from most recent to oldest, with full years everywhere:
    - **Expérience**
      - Depuis 2026: Installation en libéral, Paris 15e.
      - 2025 – 2026: Sage-femme référente du diagnostic préimplantatoire, PMA, Hôpital Antoine-Béclère, Clamart.
@@ -155,7 +155,7 @@ A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre l
 - Phone: **07 66 96 67 81**. Decided 28 October 2026: shown on **neither** page. The LCEN may require a phone number in the mentions légales; this is tracked in `TODO-LEGAL.md`.
 - Practice address: **62 rue des Entrepreneurs, 75015 Paris**. Decided 28 October 2026: shown in the contact section and in the mentions légales, as her cabinet (she also works in other places).
 - LinkedIn: https://www.linkedin.com/in/goundo-sakho-4746551a8/
-- Doctolib: not set up yet. When she has a link, the header "Prendre rendez-vous" and the hero "Demander un rendez-vous" switch to it; "Écrire un e-mail" stays an e-mail link. The link goes in `BOOKING_URL` in the script and in the `href` of every `js-book` link, on both pages (see `README.md`).
+- Doctolib: not live yet (link and planned changes in section 8). When it goes live, the header "Prendre rendez-vous" and the hero "Demander un rendez-vous" switch to it; "Écrire un e-mail" stays an e-mail link. The link goes in `BOOKING_URL` in the script and in the `href` of every `js-book` link, on both pages (see `README.md`).
 - Domain: **goundosakho.fr** (bought; DNS access comes later).
 - Host: **Netlify**, publishing this GitHub repository.
 
@@ -170,10 +170,13 @@ A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre l
 
 - [x] Replace the placeholder email with pro.goundo@gmail.com, and decide whether to show the phone number and address. *Decided 28 October 2026: email everywhere; address in the contact section and the mentions légales; phone on neither page.*
 - [ ] Have Goundo review the copy I wrote in her voice, especially:
-  - [ ] the bio sentence "on soigne mieux quand on prend le temps d'écouter";
+  - [x] the bio sentence "on soigne mieux quand on prend le temps d'écouter". *Closed 3 November 2026: Goundo rewrote the bio; the sentence is gone.*
   - [x] "Je viens à vous" next to post-partum, which implies home visits; confirm she does them. *Confirmed 28 October 2026: she does home visits; the phrase stays.*
 - [ ] Mémoire: add the PDF or the HAL-Dumas link once it is published.
-- [ ] Doctolib link, when available. *Which buttons switch is decided (section 6).*
+- [ ] **Doctolib link, to activate later** (not live; booking stays by e-mail until then): https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho
+  - **To check with Goundo first:** the listing says Saint-Ouen, the site says Paris 15e.
+  - **Planned changes when it goes live:** the header and hero buttons open Doctolib in a new tab. Contact section: H2 « Prenez rendez-vous en ligne. »; lead « Les rendez-vous se prennent sur Doctolib : vous choisissez le créneau qui vous convient. »; main button « Prendre rendez-vous sur Doctolib »; then « Une question avant de venir ? Écrivez-moi. » with the e-mail as a secondary option (subject « Question »). The notebook card is retitled « Si vous m'écrivez », without « Vos disponibilités dans la semaine ».
+  - **How:** these changes are prepared and tested as one patch, `docs/doctolib-switch.patch` (see `README.md`). Going live means applying it, after replacing the link if Goundo's listing changes.
 - [ ] Practical info: opening hours, access (nearest metro), whether she is *conventionnée*, and a sentence on reimbursement once confirmed. *(Address decided, see section 6.)*
 - [ ] Optional: a "Préparation à la naissance" detail. A branded PDF of her 7-session programme exists: anatomie, travail et accouchement, gestion de la douleur, allaitement, soins de puériculture, post-partum, and a 7th theme still to be confirmed.
 - [x] Legally required **mentions légales** page or section: identity, RPPS number, address, hosting provider. Add a privacy note if any form or analytics is added. *Decided 28 October 2026: separate page `mentions-legales.html`, host Netlify. Still missing: RPPS number and Ordre council (placeholders), legal review (see `TODO-LEGAL.md`).*
@@ -223,3 +226,12 @@ The owner answered the 22 questions in `AUDIT.md`. Summary, by question number:
 20. Privacy note: "Les e-mails de prise de rendez-vous sont supprimés au plus tard 3 mois après le rendez-vous." To be confirmed by Goundo and the legal review.
 21. "Classée 4e sur 206" stays.
 22. Doctolib, when it comes, replaces the header and hero booking buttons; "Écrire un e-mail" stays e-mail.
+
+## 11. Text changes from Goundo (approved on the preview, 3 November 2026)
+
+1. Hero lead: « Je m'appelle Goundo, je suis sage-femme. Je vous accompagne à chaque étape de votre vie de femme. De l'adolescence à la ménopause. »
+2. Le métier: H2 unchanged. Paragraphs: « On pense souvent qu'une sage-femme, c'est seulement pour l'accouchement. En réalité, c'est une profession médicale qui suit les femmes toute leur vie. » and « Je peux vous examiner, renouveler votre contraception, faire un dépistage, traiter une infection ou suivre votre grossesse. Et si votre situation le demande, je vous oriente vers le bon spécialiste. » The four facts are titles only (Grossesse, Gynécologie, Post-partum, Orientation), two per row on phones too, with a slightly larger title (1.4rem instead of 1.2rem).
+3. Pour qui, last item: « Vous voulez un check-up » / « Un bilan gynécologique, à 16 ans comme à 50 ans. »
+4. Qui suis-je, bio: « J'ai commencé par la médecine, puis j'ai choisi la maïeutique : un métier médical, au plus près des femmes, à tous les âges de leur vie. » and « J'ai d'abord travaillé en soins à domicile, puis à l'hôpital Antoine-Béclère, comme sage-femme référente du diagnostic préimplantatoire, auprès de couples en parcours de PMA. Mon mémoire porte sur les groupes de parole pour les femmes concernées par les mutilations sexuelles féminines. Depuis juillet 2026, je vous reçois en ville. » (The last sentence says « Depuis juillet 2026 », per Goundo's correction.)
+5. "À très vite": it used to finish writing itself only when it reached the middle of the screen, so it looked cut off whenever it rested in the lower half. It now finishes as soon as it is fully on screen. The other handwritten notes are unchanged.
+6. Doctolib: recorded in section 8, not live.
