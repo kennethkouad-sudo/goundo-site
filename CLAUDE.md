@@ -217,6 +217,8 @@ Done on 28 October 2026 and approved by the owner. These are the rules to follow
 - Connect the domain, and check that HTTPS and the redirect from `www` to the bare domain (or the other way round) work.
 - Put the final hosting details into the mentions légales.
 
+**Done, 3 November 2026:** the site is live at https://goundosakho.fr (Netlify, publishing `main`, `site/` only), with HTTPS, the `www` redirect and the sharing preview checked. From now on, every change goes through a pull request; Netlify builds a preview for it and publishes on merge.
+
 ---
 
 ## 11. Acceptance checks (run before saying a phase is done)
