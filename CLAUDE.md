@@ -165,6 +165,7 @@ Target structure (adjust it to the owner's answers to the audit):
 - LinkedIn: already correct. It is the only social link she wants.
 - **Do not add** any of these until the owner gives them: phone number on the main page, practice address, Doctolib link, opening hours, nearest metro, *conventionnée* status, prices, reimbursement wording, details of the birth-preparation programme, the thesis PDF or its HAL-Dumas link.
 - When Doctolib arrives later, every "Prendre rendez-vous" / "Demander un rendez-vous" button switches to it. Make this a one-line change: keep the booking URL in one place in the JS, next to `EMAIL`, and also hardcode it in the HTML.
+- **Done, 5 November 2026:** Doctolib is live (owner decision; see the brief, sections 4, 6 and 8). Booking buttons open it in a new tab; the e-mail stays for questions.
 
 ## 7. Phase 4: mentions légales
 
@@ -216,6 +217,8 @@ Done on 28 October 2026 and approved by the owner. These are the rules to follow
 - Use the host the owner chose during the audit. The site has no build, so deployment means publishing the `site/` folder only (set in `netlify.toml`).
 - Connect the domain, and check that HTTPS and the redirect from `www` to the bare domain (or the other way round) work.
 - Put the final hosting details into the mentions légales.
+
+**Done, 3 November 2026:** the site is live at https://goundosakho.fr (Netlify, publishing `main`, `site/` only), with HTTPS, the `www` redirect and the sharing preview checked. From now on, every change goes through a pull request; Netlify builds a preview for it and publishes on merge.
 
 ---
 

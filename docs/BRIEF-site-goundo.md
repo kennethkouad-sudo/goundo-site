@@ -132,7 +132,7 @@ A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre l
    - Université Paris Cité, 2026, to be published on HAL-Dumas;
    - she wants it **mentioned openly**;
    - for now the button invites people to email her for the PDF.
-8. **Rendez-vous / Contact** (mûre):
+8. **Rendez-vous / Contact** (mûre). *Since 5 November 2026 booking is on Doctolib: H2 « Prenez rendez-vous en ligne. », lead « Les rendez-vous se prennent sur Doctolib : vous choisissez le créneau qui vous convient. », main button « Prendre rendez-vous sur Doctolib », then « Une question avant de venir ? Écrivez-moi. » with the e-mail (smaller link and an outlined « Écrire un e-mail » button, subject « Question »). The notebook card is titled « Si vous m'écrivez » and no longer asks for « Vos disponibilités dans la semaine ». The e-mail booking described below is the earlier version.*
    - booking by email, with the subject line "Prise de rendez-vous";
    - the email shown as text with a copy button;
    - the practice address, shown under the e-mail subject line as « Cabinet : 62 rue des Entrepreneurs, 75015 Paris » (wording approved 28 October 2026), so it reads as her cabinet, not as the only place she works (she also works elsewhere);
@@ -155,8 +155,8 @@ A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre l
 - Phone: **07 66 96 67 81**. Decided 28 October 2026: shown on **neither** page. The LCEN may require a phone number in the mentions légales; this is tracked in `TODO-LEGAL.md`.
 - Practice address: **62 rue des Entrepreneurs, 75015 Paris**. Decided 28 October 2026: shown in the contact section and in the mentions légales, as her cabinet (she also works in other places).
 - LinkedIn: https://www.linkedin.com/in/goundo-sakho-4746551a8/
-- Doctolib: not live yet (link and planned changes in section 8). When it goes live, the header "Prendre rendez-vous" and the hero "Demander un rendez-vous" switch to it; "Écrire un e-mail" stays an e-mail link. The link goes in `BOOKING_URL` in the script and in the `href` of every `js-book` link, on both pages (see `README.md`).
-- Domain: **goundosakho.fr** (bought; DNS access comes later).
+- Doctolib: **live since 5 November 2026** (https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho), at Goundo's request, although her listing is not fully configured yet. Every booking button opens it in a new tab: the header « Prendre rendez-vous » (both pages), the hero « Demander un rendez-vous » and the contact section's « Prendre rendez-vous sur Doctolib ». The e-mail stays as a secondary option for questions (subject « Question »). To change the link: `BOOKING_URL` in the script and the `href` of every `js-book` link, on both pages (see `README.md`).
+- Domain: **goundosakho.fr** (bought from GoDaddy). Connected to Netlify on 3 November 2026: HTTPS active, `www.goundosakho.fr` redirects to `goundosakho.fr`, and the sharing preview works (checked by the owner).
 - Host: **Netlify**, publishing this GitHub repository.
 
 ## 7. Hard constraints (do not break)
@@ -173,11 +173,10 @@ A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre l
   - [x] the bio sentence "on soigne mieux quand on prend le temps d'écouter". *Closed 3 November 2026: Goundo rewrote the bio; the sentence is gone.*
   - [x] "Je viens à vous" next to post-partum, which implies home visits; confirm she does them. *Confirmed 28 October 2026: she does home visits; the phrase stays.*
 - [ ] Mémoire: add the PDF or the HAL-Dumas link once it is published.
-- [ ] **Doctolib link, to activate later** (not live; booking stays by e-mail until then): https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho
-  - **To check with Goundo first:** the listing says Saint-Ouen, the site says Paris 15e.
-  - **Planned changes when it goes live:** the header and hero buttons open Doctolib in a new tab. Contact section: H2 « Prenez rendez-vous en ligne. »; lead « Les rendez-vous se prennent sur Doctolib : vous choisissez le créneau qui vous convient. »; main button « Prendre rendez-vous sur Doctolib »; then « Une question avant de venir ? Écrivez-moi. » with the e-mail as a secondary option (subject « Question »): the address shown smaller as a clickable link, and a smaller outlined « Écrire un e-mail » button that opens the e-mail app with the address and subject filled in, like today's button (owner decision, 3 November 2026). The notebook card is retitled « Si vous m'écrivez », without « Vos disponibilités dans la semaine ».
-  - **How:** these changes are prepared and tested as one patch, `docs/doctolib-switch.patch` (see `README.md`). Going live means applying it, after replacing the link if Goundo's listing changes.
-- [ ] **"Powered by Netlify" badge.** Netlify adds it at the bottom right of every page on the free plan; only a paid plan removes it. It sets no cookies and contacts no other site, but it is not part of the approved design and conflicts with the "no third-party embeds" rule. Owner to decide: keep it, pay for the plan, or move to a host that adds nothing.
+- [x] **Doctolib.** Live since 5 November 2026 (https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho); Goundo wanted it on the site even before her listing is fully configured. The contact section uses the planned wording (section 4, item 8).
+  - [ ] **Still to check with Goundo:** the listing says Saint-Ouen, the site says Paris 15e.
+  - [ ] Finish configuring the Doctolib listing (on Doctolib's side; nothing to change on the site).
+- [ ] **"Powered by Netlify" badge.** Netlify adds it at the bottom right of every page on the free plan; only a paid plan removes it. It sets no cookies and contacts no other site, but it is not part of the approved design and conflicts with the "no third-party embeds" rule. Removing it needs Netlify's Pro plan, about $9 a month (owner's information, 3 November 2026). Owner and Goundo to decide: keep it, pay for the plan, or move to a host that adds nothing.
 - [ ] Practical info: opening hours, access (nearest metro), whether she is *conventionnée*, and a sentence on reimbursement once confirmed. *(Address decided, see section 6.)*
 - [ ] Optional: a "Préparation à la naissance" detail. A branded PDF of her 7-session programme exists: anatomie, travail et accouchement, gestion de la douleur, allaitement, soins de puériculture, post-partum, and a 7th theme still to be confirmed.
 - [x] Legally required **mentions légales** page or section: identity, RPPS number, address, hosting provider. Add a privacy note if any form or analytics is added. *Decided 28 October 2026: separate page `mentions-legales.html`, host Netlify. RPPS number (10112305296) and Ordre council (conseil départemental de Paris) added 3 November 2026, from Goundo. Still open: the legal review (see `TODO-LEGAL.md`).*
@@ -235,5 +234,5 @@ The owner answered the 22 questions in `AUDIT.md`. Summary, by question number:
 3. Pour qui, last item: « Vous voulez un check-up » / « Un bilan gynécologique, à 16 ans comme à 50 ans. »
 4. Qui suis-je, bio: « J'ai commencé par la médecine, puis j'ai choisi la maïeutique : un métier médical, au plus près des femmes, à tous les âges de leur vie. » and « J'ai d'abord travaillé en soins à domicile, puis à l'hôpital Antoine-Béclère, comme sage-femme référente du diagnostic préimplantatoire, auprès de couples en parcours de PMA. Mon mémoire porte sur les groupes de parole pour les femmes concernées par les mutilations sexuelles féminines. Depuis juillet 2026, je vous reçois en ville. » (The last sentence says « Depuis juillet 2026 », per Goundo's correction.)
 5. "À très vite": it used to finish writing itself only when it reached the middle of the screen, so it looked cut off whenever it rested in the lower half. It now finishes as soon as it is fully on screen. The other handwritten notes are unchanged.
-6. Doctolib: recorded in section 8, not live.
+6. Doctolib: recorded in section 8, not live on 3 November; **live since 5 November 2026** at Goundo's request (the prepared patch was applied as tested).
 7. Netlify: "Pretty URLs" is switched off, so links stay exactly as written. The "Powered by Netlify" badge is added by Netlify on the free plan and can only be removed on a paid plan (decision pending, see section 8).
