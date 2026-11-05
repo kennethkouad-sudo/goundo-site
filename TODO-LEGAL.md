@@ -23,9 +23,10 @@ The page is `site/mentions-legales.html` (Phase 4, 28 October 2026). Each item b
 6. **Professional communication (code de déontologie).** The page has no testimonials or reviews. The owner kept "classée 4e sur 206" (her PACES ranking). Optionally, Goundo can ask her departmental council to look over the whole page.
 7. **Address.** It is shown as her cabinet (she also works elsewhere). To check: is this the professional address that should appear in the mentions légales?
 8. **Host's phone number.** The LCEN asks for the host's name, address and phone number. Netlify publishes no phone number, so the page gives its e-mail (support@netlify.com) instead. To check: is that acceptable?
+9. **Booking on Doctolib** (since 5 November 2026). Appointments are now booked on Doctolib, which handles that data under its own terms; the site only links to it. The privacy note still says e-mails are « de prise de rendez-vous » and are deleted 3 months after the appointment; e-mails are now mostly questions. To check: should the privacy note mention Doctolib, and does the retention sentence still fit?
 
 ## Before going live
 
 - [ ] No `À COMPLÉTER` left on any page.
-- [ ] Points 1–8 above answered.
+- [ ] Points 1–9 above answered.
 - [ ] If analytics, a form or a booking widget is ever added, rewrite the privacy note first.

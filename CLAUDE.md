@@ -165,6 +165,7 @@ Target structure (adjust it to the owner's answers to the audit):
 - LinkedIn: already correct. It is the only social link she wants.
 - **Do not add** any of these until the owner gives them: phone number on the main page, practice address, Doctolib link, opening hours, nearest metro, *conventionnée* status, prices, reimbursement wording, details of the birth-preparation programme, the thesis PDF or its HAL-Dumas link.
 - When Doctolib arrives later, every "Prendre rendez-vous" / "Demander un rendez-vous" button switches to it. Make this a one-line change: keep the booking URL in one place in the JS, next to `EMAIL`, and also hardcode it in the HTML.
+- **Done, 5 November 2026:** Doctolib is live (owner decision; see the brief, sections 4, 6 and 8). Booking buttons open it in a new tab; the e-mail stays for questions.
 
 ## 7. Phase 4: mentions légales
 
