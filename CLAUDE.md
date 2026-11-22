@@ -228,7 +228,7 @@ Done on 28 October 2026 and approved by the owner. These are the rules to follow
 - [ ] No errors in the browser console. The HTML passes validation (for example `npx html-validate index.html`).
 - [ ] Chrome: scroll-driven animations play. Firefox: the page is static and complete, and the icons still draw themselves.
 - [ ] With `prefers-reduced-motion: reduce`: nothing moves and everything is visible.
-- [ ] With JavaScript disabled: all content is visible, the email address is readable, and the booking buttons open an e-mail.
+- [ ] With JavaScript disabled: all content is visible, the mobile menu opens, and the booking buttons open Doctolib (since 5 November 2026; before that, an e-mail).
 - [ ] Lighthouse (phone): Accessibility ≥ 95, Best Practices ≥ 95, SEO ≥ 95, Performance ≥ 90.
 - [ ] Every handwritten image has an `alt` text that matches its phrase. Every icon is `aria-hidden`.
 - [ ] Contrast: body text and labels pass WCAG AA on their background. Mauve is not used for any text.

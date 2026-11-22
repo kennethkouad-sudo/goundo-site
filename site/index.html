@@ -75,12 +75,10 @@ h1 sup { font-size: .45em; line-height: inherit; }
 .btn-light { background: var(--on-dark); color: var(--mure); }
 .btn-light:hover { background: #fff; }
 /* Secondary action on the mûre band: outlined and smaller than the main button. */
-.btn-quiet { border-color: var(--on-dark-soft); color: var(--on-dark); padding: .55rem 1.05rem; font-size: .9rem; }
-.btn-quiet:hover { background: rgba(247, 238, 241, .08); }
 .btn svg { width: 1em; height: 1em; }
 
 /* Header */
-.top { background: var(--blush); }
+.top { position: relative; z-index: 20; background: var(--blush); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.4rem; }
 .top .logo { flex: none; }
 .top .logo img { width: 11rem; }
@@ -88,6 +86,16 @@ h1 sup { font-size: .45em; line-height: inherit; }
 .top nav a:not(.btn) { text-decoration: none; color: var(--mure); }
 .top nav a:not(.btn):hover { text-decoration: underline; text-underline-offset: 4px; }
 .top .btn { padding: .6rem 1.1rem; font-size: .9rem; }
+/* Phones and tablets: a "Menu" button replaces the inline links, so only one booking button shows near the hero's. Built on <details>, so it also opens without JS. */
+.menu { display: none; }
+.menu summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.05rem; border: 1.5px solid var(--mure); border-radius: 999px; color: var(--mure); font-size: .9rem; font-weight: 600; user-select: none; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary svg { width: 1.1em; height: 1.1em; }
+.menu .i-close, .menu[open] .i-open { display: none; }
+.menu[open] .i-close { display: block; }
+.top .menu-panel { position: absolute; gap: 0; font-weight: 400; left: 0; right: 0; top: 100%; display: grid; padding: .2rem max(20px, env(safe-area-inset-right, 0px)) 1.5rem max(20px, env(safe-area-inset-left, 0px)); background: var(--blush); border-top: 1px solid var(--line); box-shadow: 0 22px 30px -24px rgba(74, 42, 54, .55); }
+.top .menu-panel a:not(.btn) { padding: .9rem 0; font-weight: 400; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: 1.5rem; line-height: 1.2; }
+.top .menu-panel .btn { margin-top: 1.3rem; justify-content: center; padding: .85rem 1.4rem; font-size: .98rem; }
 
 /* Hero */
 .hero { background: var(--blush); padding-block: clamp(2.5rem, 6vw, 5rem) clamp(4rem, 8vw, 6.5rem); overflow: hidden; }
@@ -196,24 +204,13 @@ h1 sup { font-size: .45em; line-height: inherit; }
 .contact h2 { font-size: clamp(2.2rem, 4.5vw, 3.4rem); margin-top: .9rem; }
 .contact .lead { margin-top: 1.4rem; max-width: 32rem; color: var(--on-dark-soft); font-size: 1.1rem; }
 .mailcard { margin-top: 2rem; display: grid; gap: 1rem; justify-items: start; }
-.mailrow { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem 1rem; }
-.mail { font-family: var(--display); font-size: clamp(1.3rem, 2.6vw, 1.8rem); color: var(--on-dark); user-select: all; overflow-wrap: anywhere; }
-.copy { background: transparent; color: var(--on-dark-soft); border: 1px solid var(--line-dark); border-radius: 999px; padding: .35rem .9rem; font: 500 .85rem var(--body); cursor: pointer; }
-.copy:hover { color: var(--on-dark); border-color: var(--on-dark-soft); }
-.subject, .cabinet { font-size: .92rem; color: var(--on-dark-soft); }
-.question { margin-top: .8rem; color: var(--on-dark); }
-.mail { font-size: clamp(1.15rem, 2vw, 1.35rem); text-decoration-thickness: 1px; text-underline-offset: 4px; } /* secondary to the Doctolib button */
-.subject b, .cabinet b { color: var(--on-dark); font-weight: 600; }
-/* "Dans votre message": a page from her notebook, taped onto the mûre band. Ruled lines, a mauve margin rule, empty boxes to tick. */
+.cabinet { font-size: .92rem; color: var(--on-dark-soft); }
+.cabinet b { color: var(--on-dark); font-weight: 600; }
+/* Emergency note: a page from her notebook, taped onto the mûre band, with a mauve margin rule. Since 22 November 2026 it holds only the « appelez le 15 » strip. */
 .checklist { --margin: 2.6rem; position: relative; min-width: 0; margin-top: .6rem; padding: 2.1rem 1.8rem 1.7rem calc(var(--margin) + 1.1rem); background: var(--paper) linear-gradient(to right, transparent var(--margin), var(--mauve) var(--margin), var(--mauve) calc(var(--margin) + 1px), transparent calc(var(--margin) + 1px)); color: var(--ink); border-radius: 2px; rotate: 1.5deg; box-shadow: 0 28px 50px -30px rgba(20, 8, 14, .8); }
 .checklist::before { content: ""; position: absolute; top: -.75rem; left: 50%; width: 6rem; height: 1.5rem; translate: -50% 0; rotate: -4deg; background: rgba(233, 214, 220, .82); }
-.checklist h3 { font-size: 1.6rem; color: var(--mure); }
-.checklist ul { margin: .9rem 0 0; padding: 0; list-style: none; }
-.checklist li { display: grid; grid-template-columns: 1.7rem minmax(0, 1fr); align-items: start; padding-block: .62rem; border-bottom: 1px solid var(--line); }
-.checklist li::before { content: ""; width: .9rem; height: .9rem; margin-top: .38em; border: 1.4px solid var(--olive); border-radius: 3px; }
 .nowrap { white-space: nowrap; }
-.checklist .aside { margin-top: 1rem; font-size: .92rem; line-height: 1.5; color: var(--ink-soft); }
-.checklist .urgent { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: center; margin-top: 1.5rem; padding: 1rem 1.1rem; background: var(--blush); font-size: .92rem; line-height: 1.5; color: var(--ink); }
+.checklist .urgent { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem; align-items: center; margin-top: 0; padding: 1rem 1.1rem; background: var(--blush); font-size: .92rem; line-height: 1.5; color: var(--ink); }
 .checklist .urgent .num { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--mure); color: var(--on-dark); font-family: var(--display); font-size: 1.35rem; line-height: 1; }
 .checklist .urgent b { color: var(--mure); font-weight: 600; }
 
@@ -224,7 +221,8 @@ footer nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 footer a { color: var(--on-dark); text-underline-offset: 3px; }
 
 @media (max-width: 860px) {
-  .top nav a:not(.btn) { display: none; }
+  .top .nav-wide { display: none; }
+  .menu { display: block; }
   .hero .wrap, .role .wrap, .path .wrap, .contact .wrap, .memoire .meta { grid-template-columns: minmax(0, 1fr); }
   .portrait { max-width: 26rem; } /* the approved look keeps margin: 0 here (an inline style used to override a margin-inline rule) */
   .service { grid-template-columns: minmax(0, 1fr); }
@@ -322,12 +320,21 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 <header class="top">
   <div class="wrap">
     <a class="logo" href="#accueil" aria-label="Goundo, accueil"><picture><source srcset="img/logo-mure.webp" type="image/webp"><img src="img/logo-mure.png" alt="Goundo" width="734" height="146"></picture></a>
-    <nav aria-label="Navigation principale">
+    <nav class="nav-wide" aria-label="Navigation principale">
       <a href="#soins">Soins</a>
       <a href="#parcours">Parcours</a>
       <a href="#memoire">Mémoire</a>
       <a class="btn btn-olive js-book" href="https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho" target="_blank" rel="noopener">Prendre rendez-vous</a>
     </nav>
+    <details class="menu">
+      <summary>Menu <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></summary>
+      <nav class="menu-panel" aria-label="Menu">
+        <a href="#soins">Soins</a>
+        <a href="#parcours">Parcours</a>
+        <a href="#memoire">Mémoire</a>
+        <a class="btn btn-olive js-book" href="https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho" target="_blank" rel="noopener">Prendre rendez-vous</a>
+      </nav>
+    </details>
   </div>
 </header>
 
@@ -520,7 +527,6 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
         <p>J'ai consacré mon mémoire à ce que la parole partagée apporte aux femmes ayant subi une excision. Si vous êtes concernée, vous pouvez m'en parler en consultation. Je vous écouterai, et je vous orienterai si vous le souhaitez.</p>
         <div class="side">
           <span>Université Paris Cité, 2026. Publication prochaine sur HAL-Dumas.</span>
-          <a class="btn btn-ghost" href="#rendez-vous">Recevoir le mémoire</a>
         </div>
       </div>
     </div>
@@ -536,26 +542,10 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
           <a class="btn btn-light js-book" href="https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho" target="_blank" rel="noopener">Prendre rendez-vous sur Doctolib
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
-          <p class="question">Une question avant de venir ? Écrivez-moi.</p>
-          <div class="mailrow">
-            <a class="mail js-mail" id="mail-text" href="mailto:pro.goundo@gmail.com?subject=Question">pro.goundo@gmail.com</a>
-            <button class="copy" id="copy-btn" type="button" aria-live="polite" hidden>Copier l'adresse</button>
-          </div>
-          <p class="subject">Objet du message : <b>Question</b></p>
-          <a class="btn btn-quiet js-mail" href="mailto:pro.goundo@gmail.com?subject=Question">Écrire un e-mail
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-          </a>
           <p class="cabinet">Cabinet : <b>62 rue des Entrepreneurs, 75015 Paris</b></p>
         </div>
       </div>
       <div class="checklist">
-        <h3>Si vous m'écrivez</h3>
-        <ul>
-          <li>Votre nom et prénom</li>
-          <li><span>Le type de consultation (grossesse, gynécologie, <span class="nowrap">post-partum…)</span></span></li>
-          <li>Un numéro de téléphone pour vous joindre</li>
-        </ul>
-        <p class="aside">Inutile de détailler votre situation par <span class="nowrap">e-mail</span>, on en parlera en consultation.</p>
         <p class="urgent"><span class="num" aria-hidden="true">15</span><span><b>En cas d'urgence</b>, n'attendez pas ma réponse : appelez le 15 ou rendez-vous aux urgences de la maternité la plus proche.</span></p>
       </div>
     </div>
@@ -576,21 +566,14 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 
 <script>
 (function () {
-  // The same address and booking link are also written in the HTML, so everything works without JS (see README).
-  var EMAIL = "pro.goundo@gmail.com";
-  var SUBJECT = "Question";
-  var BOOKING_URL = "https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho"; // Doctolib link, once Goundo has one. Empty: the booking buttons keep their e-mail / #rendez-vous links.
-  var href = "mailto:" + EMAIL + "?subject=" + encodeURIComponent(SUBJECT);
-  document.getElementById("mail-text").textContent = EMAIL;
-  document.querySelectorAll(".js-mail").forEach(function (a) { a.setAttribute("href", href); });
-  if (BOOKING_URL) document.querySelectorAll(".js-book").forEach(function (a) { a.setAttribute("href", BOOKING_URL); });
-  var btn = document.getElementById("copy-btn");
-  btn.hidden = false; // without JS the button could not copy anything, so it stays hidden
-  btn.addEventListener("click", function () {
-    var done = function () { btn.textContent = "Adresse copiée"; setTimeout(function () { btn.textContent = "Copier l'adresse"; }, 2000); };
-    var select = function () { var r = document.createRange(); r.selectNodeContents(document.getElementById("mail-text")); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); btn.textContent = "Adresse sélectionnée"; };
-    try { navigator.clipboard.writeText(EMAIL).then(done, select); } catch (e) { select(); }
-  });
+  // The booking link is also written in the HTML of every .js-book link (both pages), so it works without JS (see README).
+  var BOOKING_URL = "https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho";
+  document.querySelectorAll(".js-book").forEach(function (a) { a.setAttribute("href", BOOKING_URL); });
+  // Mobile menu: close it after choosing a section, on Escape, or when tapping elsewhere.
+  var menu = document.querySelector(".menu");
+  menu.querySelectorAll(".menu-panel a").forEach(function (a) { a.addEventListener("click", function () { menu.open = false; }); });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape" && menu.open) { menu.open = false; menu.querySelector("summary").focus(); } });
+  document.addEventListener("click", function (e) { if (menu.open && !menu.contains(e.target)) menu.open = false; });
 })();
 
 /* Line icons draw in, stroke after stroke, when they come into view. */

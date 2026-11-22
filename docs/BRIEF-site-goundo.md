@@ -104,7 +104,7 @@ A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre l
 
 ## 4. Page structure (as built)
 
-1. **Header** (mauve poudré): logo, nav (Soins, Parcours, Mémoire) and an olive "Prendre rendez-vous" button.
+1. **Header** (mauve poudré): logo, nav (Soins, Parcours, Mémoire) and an olive "Prendre rendez-vous" button. *On phones and tablets (860px and narrower), since 22 November 2026: the logo and a "Menu" button at the top right; the menu opens below the header with Soins, Parcours, Mémoire and the "Prendre rendez-vous" button. This keeps a single booking button (the hero's) on the first screen. Same header on the mentions légales page.*
 2. **Hero** (mauve poudré):
    - handwritten "Bienvenue";
    - H1 "Sage-femme libérale à Paris 15e, pour votre santé de *femme*, à tout âge.";
@@ -131,8 +131,8 @@ A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre l
    - « Le groupe de parole dans la prise en charge des femmes concernées par les mutilations sexuelles féminines »;
    - Université Paris Cité, 2026, to be published on HAL-Dumas;
    - she wants it **mentioned openly**;
-   - for now the button invites people to email her for the PDF.
-8. **Rendez-vous / Contact** (mûre). *Since 5 November 2026 booking is on Doctolib: H2 « Prenez rendez-vous en ligne. », lead « Les rendez-vous se prennent sur Doctolib : vous choisissez le créneau qui vous convient. », main button « Prendre rendez-vous sur Doctolib », then « Une question avant de venir ? Écrivez-moi. » with the e-mail (smaller link and an outlined « Écrire un e-mail » button, subject « Question »). The notebook card is titled « Si vous m'écrivez » and no longer asks for « Vos disponibilités dans la semaine ». The e-mail booking described below is the earlier version.*
+   - for now the button invites people to email her for the PDF. *Removed 22 November 2026 (no e-mail on the page any more); a button comes back with the HAL-Dumas link.*
+8. **Rendez-vous / Contact** (mûre). *Since 5 November 2026 booking is on Doctolib: H2 « Prenez rendez-vous en ligne. », lead « Les rendez-vous se prennent sur Doctolib : vous choisissez le créneau qui vous convient. », main button « Prendre rendez-vous sur Doctolib », then the cabinet address. Since 22 November 2026 there is no e-mail block here (patients can message Goundo on Doctolib before booking); the address stays in the mentions légales. Since 22 November 2026 the taped notebook card holds only the emergency strip (« En cas d'urgence… appelez le 15… »); its checklist is gone. The e-mail booking described below is the earlier version.*
    - booking by email, with the subject line "Prise de rendez-vous";
    - the email shown as text with a copy button;
    - the practice address, shown under the e-mail subject line as « Cabinet : 62 rue des Entrepreneurs, 75015 Paris » (wording approved 28 October 2026), so it reads as her cabinet, not as the only place she works (she also works elsewhere);
@@ -172,7 +172,7 @@ A uterus with two flowers as ovaries, on a mauve-poudré rounded square: mûre l
 - [ ] Have Goundo review the copy I wrote in her voice, especially:
   - [x] the bio sentence "on soigne mieux quand on prend le temps d'écouter". *Closed 3 November 2026: Goundo rewrote the bio; the sentence is gone.*
   - [x] "Je viens à vous" next to post-partum, which implies home visits; confirm she does them. *Confirmed 28 October 2026: she does home visits; the phrase stays.*
-- [ ] Mémoire: add the PDF or the HAL-Dumas link once it is published.
+- [ ] Mémoire: add the PDF or the HAL-Dumas link once it is published, with a button to it (the « Recevoir le mémoire » e-mail button was removed on 22 November 2026).
 - [x] **Doctolib.** Live since 5 November 2026 (https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho); Goundo wanted it on the site even before her listing is fully configured. The contact section uses the planned wording (section 4, item 8).
   - [ ] **Still to check with Goundo:** the listing says Saint-Ouen, the site says Paris 15e.
   - [ ] Finish configuring the Doctolib listing (on Doctolib's side; nothing to change on the site).
@@ -236,3 +236,10 @@ The owner answered the 22 questions in `AUDIT.md`. Summary, by question number:
 5. "À très vite": it used to finish writing itself only when it reached the middle of the screen, so it looked cut off whenever it rested in the lower half. It now finishes as soon as it is fully on screen. The other handwritten notes are unchanged.
 6. Doctolib: recorded in section 8, not live on 3 November; **live since 5 November 2026** at Goundo's request (the prepared patch was applied as tested).
 7. Netlify: "Pretty URLs" is switched off, so links stay exactly as written. The "Powered by Netlify" badge is added by Netlify on the free plan and can only be removed on a paid plan (decision pending, see section 8).
+
+## 12. Changes of 22 November 2026 (owner request)
+
+1. **Mobile menu.** On phones and tablets the header's "Prendre rendez-vous" sat right above the hero's "Demander un rendez-vous". The header now shows the logo and a "Menu" button (text plus a two-line icon, drawn like the arrows in the buttons); the menu holds Soins, Parcours, Mémoire and "Prendre rendez-vous". It is built on the browser's own disclosure element, so it also works without JavaScript; with JavaScript it closes after choosing a section, on Escape, or on a tap outside. Desktop is unchanged.
+2. **No e-mail block in the contact section.** Removed: « Une question avant de venir ? Écrivez-moi. », the address with its copy button, the subject line and the « Écrire un e-mail » button. Patients can message Goundo on Doctolib. The e-mail address stays in the mentions légales (legally required).
+3. **Emergency note.** The notebook card « Si vous m'écrivez » (name, type of consultation, phone number, « Inutile de détailler… par e-mail ») is removed with the e-mail. The emergency strip « En cas d'urgence… appelez le 15… » stays on its own on the taped card (owner's choice A).
+4. **« Recevoir le mémoire »** is removed until the HAL-Dumas link exists; the Mémoire section keeps « Université Paris Cité, 2026. Publication prochaine sur HAL-Dumas. »

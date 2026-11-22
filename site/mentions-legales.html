@@ -65,7 +65,7 @@ sup { font-size: .7em; line-height: 0; }
 .btn-olive:hover { background: #4f5535; }
 
 /* Header */
-.top { background: var(--blush); }
+.top { position: relative; z-index: 20; background: var(--blush); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.4rem; }
 .top .logo { flex: none; }
 .top .logo img { width: 11rem; }
@@ -73,6 +73,16 @@ sup { font-size: .7em; line-height: 0; }
 .top nav a:not(.btn) { text-decoration: none; color: var(--mure); }
 .top nav a:not(.btn):hover { text-decoration: underline; text-underline-offset: 4px; }
 .top .btn { padding: .6rem 1.1rem; font-size: .9rem; }
+/* Phones and tablets: a "Menu" button replaces the inline links, so only one booking button shows near the hero's. Built on <details>, so it also opens without JS. */
+.menu { display: none; }
+.menu summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: .5rem; padding: .6rem 1.05rem; border: 1.5px solid var(--mure); border-radius: 999px; color: var(--mure); font-size: .9rem; font-weight: 600; user-select: none; }
+.menu summary::-webkit-details-marker { display: none; }
+.menu summary svg { width: 1.1em; height: 1.1em; }
+.menu .i-close, .menu[open] .i-open { display: none; }
+.menu[open] .i-close { display: block; }
+.top .menu-panel { position: absolute; gap: 0; font-weight: 400; left: 0; right: 0; top: 100%; display: grid; padding: .2rem max(20px, env(safe-area-inset-right, 0px)) 1.5rem max(20px, env(safe-area-inset-left, 0px)); background: var(--blush); border-top: 1px solid var(--line); box-shadow: 0 22px 30px -24px rgba(74, 42, 54, .55); }
+.top .menu-panel a:not(.btn) { padding: .9rem 0; font-weight: 400; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: 1.5rem; line-height: 1.2; }
+.top .menu-panel .btn { margin-top: 1.3rem; justify-content: center; padding: .85rem 1.4rem; font-size: .98rem; }
 
 /* Legal text: one readable column, sections divided by thin rules, like the rest of the site. */
 .legal .wrap > * { max-width: 46rem; }
@@ -95,7 +105,8 @@ footer nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
 footer a { color: var(--on-dark); text-underline-offset: 3px; }
 
 @media (max-width: 860px) {
-  .top nav a:not(.btn) { display: none; }
+  .top .nav-wide { display: none; }
+  .menu { display: block; }
 }
 @media (max-width: 520px) {
   .top .logo img { width: 7.5rem; }
@@ -112,12 +123,21 @@ footer a { color: var(--on-dark); text-underline-offset: 3px; }
 <header class="top">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Goundo, accueil"><picture><source srcset="img/logo-mure.webp" type="image/webp"><img src="img/logo-mure.png" alt="Goundo" width="734" height="146"></picture></a>
-    <nav aria-label="Navigation principale">
+    <nav class="nav-wide" aria-label="Navigation principale">
       <a href="index.html#soins">Soins</a>
       <a href="index.html#parcours">Parcours</a>
       <a href="index.html#memoire">Mémoire</a>
       <a class="btn btn-olive js-book" href="https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho" target="_blank" rel="noopener">Prendre rendez-vous</a>
     </nav>
+    <details class="menu">
+      <summary>Menu <svg class="i-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg><svg class="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></summary>
+      <nav class="menu-panel" aria-label="Menu">
+        <a href="index.html#soins">Soins</a>
+        <a href="index.html#parcours">Parcours</a>
+        <a href="index.html#memoire">Mémoire</a>
+        <a class="btn btn-olive js-book" href="https://www.doctolib.fr/sage-femme/saint-ouen/goundo-sakho" target="_blank" rel="noopener">Prendre rendez-vous</a>
+      </nav>
+    </details>
   </div>
 </header>
 
